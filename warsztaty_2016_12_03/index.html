@@ -1,0 +1,1538 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>PyLadies - Python3 - Warsztaty dla początkujących</title>
+
+    <meta name="description" content="PyLadies Python3 basics" />
+    <meta name="author" content="Grzegorz Gwóźdź" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="lib/highlight/styles/ascetic-dark.css">
+    <script src="lib/highlight/highlight.pack.js"></script>
+
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<a href="#title">Home</a>
+<a href="#alldivs">alldivs</a>
+
+<div id="impress">
+
+<div id="title" class="step" data-x="0" data-y="0" data-z="0" data-rotate-y="60">
+    <div class="python-logo">
+        <img src="./images/python_with_shadow.png"/>
+        <h1>Python</h1>
+    </div>
+    <div class="python-logo">
+        <img src="./images/pyladies_head.png"/>
+        <img src="./images/pyladies_logo.png" class="rotate90">
+        <h2> Warsztaty dla początkujących </h2>
+    </div>
+    Część:
+    <a href="#part1">1</a>
+    <a href="#part2">2</a>
+    <a href="#part3">3</a>
+    <a href="#part4">4</a>
+    <a href="#exercises">Zadania</a>
+    <a href="#exercises-pogoda">Zadanie z gwiazdką</a>
+    <a href="#docs-stack">Pomoc</a>
+    <br/>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 1 -->
+<!--        -->
+<!--        -->
+
+<div id="part1" class="step" data-x="0" data-y="1500">
+    <h1>Część 1</h1>
+    <ul>
+        <li> Interpreter </li>
+        <li> Proste typy danych </li>
+        <li> Zmienna </li>
+        <li> Podstawowe operacje </li>
+        <li> Konwersja typów </li>
+    </ul>
+</div>
+
+<div id="interpreter" class="step" data-x="1500" data-y="1500">
+<h1> Interpreter </h1>
+Jest to program, który wykonuje napisany przez nas program instrukcja po instrukcji
+<br/>
+<br/>
+<strong> REPL </strong> - Read, Eval, Print, Loop
+</div>
+
+<div id="interpreter_run" class="step" data-x="3000" data-y="1500">
+<h1>Uruchomienie interpretera Pythona</h1>
+<pre><code class="bash">$ python [ENTER]</code></pre>
+<br/>
+<pre><code class="bash">user@hostname ~ $ python
+Python 3.5.2 (default, Nov  7 2016, 11:31:36)
+[GCC 6.2.1 20160830] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>></code></pre>
+</div>
+
+<div id="interpreter_versions" class="step" data-x="4500" data-y="1500">
+<h2> Uruchomienie interpretera Pythona w&nbspdanej wersji </h2>
+<pre><code class="bash">$ python2</code></pre>
+<br/>
+<pre><code class="bash">$ python3</code></pre>
+<br/>
+<h2> Sprawdzenie wersji </h2>
+<pre><code class="bash">$ python --version
+Python 3.5.2</code></pre>
+</div>
+
+<div id="interpreter_commands" class="step" data-x="6000" data-y="1500">
+<h1>Komenda</h1>
+<pre><code class="python">>>> komenda
+wynik</code></pre>
+</div>
+
+<div id="interpreter_exit" class="step" data-x="7500" data-y="1500">
+<h1>Wyjście z interpretera</h1>
+<pre><code class="python">>>> quit()</code></pre>
+<br/>
+<pre><code class="python">>>> exit()</code></pre>
+<br/>
+<pre><code class="bash">Ctrl + D</code></pre>
+</div>
+
+<div id="data-types" class="step" data-x="9000" data-y="1500">
+<h1> Proste typy danych </h1>
+<table class="data-types">
+<tr class="main-row"><td class="main-row"> Typ </td><td class="main-row"> Opis </td><td class="main-row"> Przykłady </td></tr>
+<tr><td class="data-type">int</td><td>liczba całkowita</td><td>4, 42355</td></tr>
+<tr><td class="data-type">float</td><td>liczba z przecinkiem</td><td>42.6442, 1.02</td></tr>
+<tr><td class="data-type">str</td><td>łańcuch znaków</td><td>"kot", 'Ala'</td></tr>
+<tr><td class="data-type">bool</td><td>prawda lub fałsz</td><td>True, False</td></tr>
+<tr><td class="data-type">NoneType</td><td>nieobecność wartości</td><td>None</td></tr>
+</table>
+</div>
+
+<div id="variable" class="step" data-x="10500" data-y="1500">
+<h1> Zmienna </h1>
+<ul>
+    <li> identyfikator </li>
+    <li> symboliczna nazwa </li>
+    <li> dozwolone znaki:
+        <ul class="inner">
+            <li> "a" ... "z", "A" ... "Z" </li>
+            <li> "0" ... "9" </li>
+            <li> _ </li>
+        </ul>
+    </li>
+    <li> nazwa musi zaczynać się od litery lub podkreślnika </li>
+    <li> nie można stosować słów kluczowych </li>
+</ul>
+</div>
+
+<div id="keywords" class="step" data-x="12000" data-y="1500">
+<h1> Słowa kluczowe </h1>
+False, None, True, and, as, assert, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield
+</div>
+
+<div id="variable-examples" class="step" data-x="13500" data-y="1500">
+<h1> Zmienna - przykłady </h1>
+<pre><code class="python">>>> x = 2
+>>> zdanie = 'Ala ma kota'
+>>> nic = None
+>>> x
+2
+>>> nic
+>>> zdanie
+'Ala ma kota'</code></pre>
+</div>
+
+<div id="variable-types" class="step" data-x="15000" data-y="1500">
+<h1> Typ zmiennej </h1>
+<pre><code class="python">>>> x = 37
+>>> text = 'Napis.'
+>>> type(x)
+&ltclass 'int'&gt
+>>> type(text)
+&ltclass 'str'&gt</code></pre>
+</div>
+
+<div id="variable-assign" class="step" data-x="16500" data-y="1500">
+<h1> Przypisywanie wartości </h1>
+Przypisanie jednej zmiennej do innej powoduje skopiowanie wartości.
+<br/>
+<strong><font color="#c00">UWAGA</font></strong> Kopiowanie tylko dla prostych typów!
+<br/>
+<br/>
+<pre><code class="python">>>> x = 37
+>>> y = 5
+>>> x = y
+>>> y = 10
+>>> x
+5
+>>> y
+10
+</code></pre>
+</div>
+
+<div id="variable-multiassign" class="step" data-x="18000" data-y="1500">
+<h1> Przypisywanie wartości </h1>
+Przypisanie wartości do kilku zmiennych naraz
+<br/>
+<br/>
+<pre><code class="python">>>> x, y = 37, 28
+>>> y
+28
+>>> x
+37
+>>> x, y = y, x
+>>> y
+37
+>>> x
+28
+</code></pre>
+</div>
+
+<div id="variable-change-type" class="step" data-x="19500" data-y="1500">
+<h1> Dynamiczny typ zmiennej </h1>
+Można zmienić typ zmiennej przypisując do niej wartość innego typu
+<br/>
+<br/>
+<pre><code class="python">>>> x = 37
+>>> type(x)
+&ltclass 'int'&gt
+>>> x = 'PyLadies Wrocław'
+>>> type(x)
+&ltclass 'str'&gt</code></pre>
+</div>
+
+<div id="arithmetic-operators" class="step" data-x="21000" data-y="1500">
+<h1> Operatory </h1>
+<table class="data-types">
+<tr class="main-row"><td class="main-row"> Operator </td><td class="main-row"> Opis </td><td class="main-row"> Przykład </td></tr>
+<tr><td class="data-type">+, -, *, /</td><td>tradycyjnie</td><td>2 + 2 = 4</td></tr>
+<tr><td class="data-type">//</td><td>dzielenie,<br/>wynik bez części ułamkowej</td><td>8.2 // 4.5 = 1.0<br/>5 // 2 = 2</td></tr>
+<tr><td class="data-type">**</td><td>potęgowanie</td><td>2 ** 3 = 8</td></tr>
+<tr><td class="data-type">%</td><td>modulo</td><td>7 % 3 = 1</td></tr>
+<tr><td class="data-type">==, !=, <, ></td><td>porównanie</td><td>2 == 3 = False</td></tr>
+<tr><td class="data-type">(  )</td><td>nawiasowanie wyrażeń</td><td>(6 - 2) * 3 = 9</td></tr>
+</table>
+</div>
+
+<div id="arithmetic-operations-addition" class="step" data-x="22500" data-y="1500">
+<h1> Typ wyniku dodawania lub odejmowania </h1>
+<pre><code class="python">>>> type(2 + 2)
+&ltclass 'int'&gt
+>>> type(3.0 + 5.1)
+&ltclass 'float'&gt
+>>> type(2 - 7.2)
+&ltclass 'float'&gt
+</code></pre>
+</div>
+
+<div id="arithmetic-operations-multiplication" class="step" data-x="24000" data-y="1500">
+<h1> Typ wyniku mnożenia i dzielenia </h1>
+<pre><code class="python">>>> type(2 * 2)
+&ltclass 'int'&gt
+>>> type(3.0 * 5)
+&ltclass 'float'&gt
+>>> type(4 / 2)
+&ltclass 'float'&gt
+>>> type(4 // 2.0)
+&ltclass 'float'&gt
+>>> type(4 // 2)
+&ltclass 'int'&gt
+</code></pre>
+</div>
+
+<div id="strings" class="step" data-x="25500" data-y="1500">
+<h1> String </h1>
+<ul>
+    <li> napis </li>
+    <li> tekst </li>
+    <li> łańcuch znaków </li>
+    <li> zapis w apostrofach → 'Ala ma kota'
+    <li> zapis w cudzysłowie → "Ala ma kota"
+    </code></pre>
+</ul>
+</div>
+
+<div id="strings-form" class="step" data-x="27000" data-y="1500">
+<h1> Różnice w zapisach </h1>
+<ul>
+    <li> wewnątrz zapisu w ' ' można stosować " " </li>
+    <li> wewnątrz zapisu w " " można stosować ' ' </li>
+</ul>
+<br/>
+<pre><code class="python">>>> 'Chodzę do "pracy"'
+'Chodzę do "pracy"'
+>>> "Chodzę do 'pracy'"
+"Chodzę do 'pracy'"
+>>> "Chodzę do "pracy""
+  File "<stdin>", line 1
+    "Chodzę do "pracy""
+                    ^
+SyntaxError: invalid syntax
+</code></pre>
+</div>
+
+<div id="print" class="step" data-x="28500" data-y="1500">
+<h1> print() - wypisz </h1>
+Podczas wyświetlania napisów pomijane są zewnętrzne apostrofy lub cudzysłów.
+<br/>
+<br/>
+<pre><code class="python">>>> print('Hello')
+Hello
+>>> print('Hello', 'World')
+Hello World
+>>> print('Hello', 'World', "from Wrocław", 1500)
+Hello World from Wrocław 1500
+</code></pre>
+<br/>
+<pre><code class="python">>>> x = 'Hello "World"'
+>>> print(x)
+Hello "World"
+</code></pre>
+</div>
+
+<div id="cast-int" class="step" data-x="30000" data-y="1500">
+<h1> Konwersja typu </h1>
+Zamiana na inny typ
+<br/>
+<br/>
+<pre><code class="python">>>> '2' + 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Can't convert 'int' object to str implicitly
+</code></pre>
+<br/>
+<pre><code class="python">>>> int('2') + 2
+4
+</code></pre>
+</div>
+
+<div id="cast-str" class="step" data-x="31500" data-y="1500">
+<h1> Konwersja typu </h1>
+<pre><code class="python">>>> int('2.2')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '2.2'
+>>> float('2.7')
+2.7
+>>> int(2.7)
+2
+>>> str(2 + 2)
+'4'
+</code></pre>
+</div>
+
+<div id="cast-none" class="step" data-x="33000" data-y="1500">
+<h1> Konwersja typu - subtelności z None</h1>
+<pre><code class="python">>>> str(None)
+'None'
+>>> int(None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+</code></pre>
+</div>
+
+<div id="input-cant-convert-1" class="step begin-example" data-x="34500" data-y="1500">
+<h1> input() - wczytanie danych od użytkownika </h1>
+<pre><code class="python">>>> wiek = input()
+<font color="cyan">45 [ENTER]</font>
+>>> wiek
+'45'
+>>> wiek + 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Can't convert 'int' object to str implicitly
+</code></pre>
+<br/>
+<strong><font color="#007"> implicitly - ... </font></strong>
+<br/>
+Dlaczego jest problem? Jak naprawić?
+</div>
+
+<div id="input-cant-convert-2" class="step end-example" data-x="34500" data-y="1500">
+<h1> input() - wczytanie danych od użytkownika </h1>
+<pre><code class="python">>>> wiek = input()
+<font color="cyan">45 [ENTER]</font>
+>>> wiek
+'45'
+>>> int(wiek) + 2
+47
+
+
+</code></pre>
+<br/>
+<strong><font color="#007"> implicitly - niejawnie </font></strong>
+<br/>
+Interpreter sam nie potrafił wykonać konwersji w tym przypadku
+</div>
+
+
+<div id="example-calculator-question" class="step begin-example" data-x="36000" data-y="1500">
+<h1> Zadanie: kalkulator </h1>
+Wykonaj kalkulację za użytkownika
+<br/>
+<br/>
+<pre><code class="python">wczytaj x
+wczytaj y
+oblicz sumę
+wypisz Suma = [suma]
+</code></pre>
+</div>
+
+<div id="example-calculator-answer" class="step end-example" data-x="36000" data-y="1500">
+<h1> Przykład kalkulatora</h1>
+Wykonaj kalkulację za użytkownika
+<br/>
+<br/>
+<pre><code class="python">>>> x = input()
+>>> y = input()
+>>> suma = float(x) + float(y)
+>>> print('Suma =', suma)
+</code></pre>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 2 -->
+<!--        -->
+<!--        -->
+
+<div id="part2" class="step" data-x="0" data-y="3000">
+    <h1>Część 2</h1>
+    <ul>
+        <li> Skrypt </li>
+        <li> Komentarze </li>
+        <li> Instrukcje warunkowe </li>
+        <li> Wcięcia </li>
+        <li> Operacje na stringach </li>
+        <li> Używanie dokumentacji </li>
+    </ul>
+</div>
+
+<div id="script" class="step" data-x="1500" data-y="3000">
+<h1> Skrypt </h1>
+<h2> Plik zawierający instrukcje dla interpretera
+<h2> Program </h2>
+<pre><code class="bash">$ python3 plik.py
+</code></pre>
+</div>
+
+<div id="script-calculator" class="step" data-x="3000" data-y="3000">
+<h1> Kalkulator w pliku </h1>
+<strong>calculator.py</strong>
+<pre><code class="python">x = input()
+y = input()
+suma = float(x) + float(y)
+print('Suma =', suma)
+</code></pre>
+<br/>
+<pre><code class="bash">$ python3 calculator.py
+</code></pre>
+</div>
+
+<div id="script-calculator-comments" class="step" data-x="4500" data-y="3000">
+<h1> Komentarze </h1>
+<strong>calculator.py</strong>
+<pre><code class="python"># wczytaj x i y
+x = input()
+y = input()
+suma = float(x) + float(y)  # konwersja ze string na float
+# wypisz wynik
+print('Suma =', suma)
+</code></pre>
+</div>
+
+<div id="script-calculator-comments-multiline-1" class="step begin-example" data-x="6000" data-y="3000">
+<h1> Komentarze wielolinijkowe </h1>
+<strong>calculator.py</strong>
+<pre><code class="python">'''
+program: Prosty kalkulator
+autor: Pythonista
+'''
+
+# wczytaj x i y
+x = input()
+y = input()
+suma = float(x) + float(y)  # konwersja ze string na float
+
+# wypisz wynik
+print('Suma =', suma)
+</code></pre>
+</div>
+
+<div id="script-calculator-comments-multiline-2" class="step begin-example" data-x="6000" data-y="3000">
+<h1> Komentarze wielolinijkowe </h1>
+<strong>calculator.py</strong>
+<pre><code class="python">'''
+program: Prosty kalkulator
+autor: Pythonista
+'''
+
+# wczytaj x i y
+x = input()
+y = input()
+# suma = float(x) + float(y)  # konwersja ze string na float
+
+# wypisz wynik
+print('Suma =', float(x) + float(y))
+</code></pre>
+</div>
+
+<div id="script-calculator-comments-multiline-3" class="step end-example" data-x="6000" data-y="3000">
+<h1> Komentarze wielolinijkowe </h1>
+<strong>calculator.py</strong>
+<pre><code class="python">'''
+program: Prosty kalkulator
+autor: Pythonista
+'''
+
+# wczytaj x i y
+# x = input()
+# y = input()
+# suma = float(x) + float(y)  # konwersja ze string na float
+
+# wypisz wynik
+print('Suma =', float(input()) + float(input()))
+</code></pre>
+</div>
+
+<div id="if" class="step" data-x="7500" data-y="3000">
+<h1> Instrukcja warunkowa - if </h1>
+<h2> Konstrukcja </h2>
+<pre><code class="python">if warunek:
+    akcja
+elif inny_warunek:
+    inaczej
+    wykona
+    się
+    ten blok
+else:
+    a jak nie
+    to ten
+</div>
+
+<div id="indentation" class="step" data-x="9000" data-y="3000">
+<h1> Wcięcia - podział na bloki </h1>
+<pre><code class="python">if warunek:
+<font color="#0aa">||||</font>blok 1
+elif inny_warunek:
+<font color="#0aa">||||</font>blok 2
+<font color="#0aa">||||</font>blok 2
+<font color="#0aa">||||
+wcięcie na 4 spacje</font>
+</div>
+
+<div id="if-conditions" class="step" data-x="10500" data-y="3000">
+<h1> Co może być warunkiem? </h1>
+<h2> Coś co w wyniku daje <strong>True</strong> lub <strong>False</strong> </h2>
+<pre><code class="python">>>> 2 != 2
+False
+>>> True
+True
+>>> (10 - 10) == False
+True
+>>> None == False
+False
+>>> '1' == True
+False
+>>> int('1') == True
+True
+</div>
+
+<div id="if-conditions-join" class="step begin-example" data-x="12000" data-y="3000">
+<h1> Łączenie warunków </h1>
+<ul>
+<li> <strong>and</strong> - koniunkcja </li>
+<li> <strong>or</strong> - alternatywa </li>
+</ul>
+<br/>
+<pre><code class="python">>>> 2 == 2 and 2 != 3
+True
+>>> False or True
+True
+>>> (True and 2) > (4 and True)
+True
+>>> True and 2 > 4 and True
+<font color="#a00">???</font>
+</div>
+
+<div id="if-conditions-join" class="step begin-example" data-x="12000" data-y="3000">
+<h1> Łączenie warunków </h1>
+<ul>
+<li> <strong>and</strong> - koniunkcja </li>
+<li> <strong>or</strong> - alternatywa </li>
+</ul>
+<br/>
+<pre><code class="python">>>> 2 == 2 and 2 != 3
+True
+>>> False or True
+True
+>>> <font color="#aa0">(</font>True and 2<font color="#aa0">)</font> > <font color="#aa0">(</font>4 and True<font color="#aa0">)</font>
+<font color="#aa0">True</font>
+>>> True and 2 > 4 and True
+<font color="#aa0">False</font>
+</div>
+
+<div id="if-conditions-join-2" class="step end-example" data-x="12000" data-y="3000">
+<h1> Łączenie warunków </h1>
+<ul>
+<li> <strong>and</strong> - koniunkcja </li>
+<li> <strong>or</strong> - alternatywa </li>
+</ul>
+<br/>
+<pre><code class="python">>>> 2 == 2 and 2 != 3
+True
+>>> False or True
+True
+>>> <font color="#aa0">(</font>True and 2<font color="#aa0">)</font> > <font color="#aa0">(</font>4 and True<font color="#aa0">)</font>
+<font color="#aa0">True</font>
+>>> True and <font color="#aa0">False</font> and True
+<font color="#aa0">False</font>
+</div>
+
+<div id="if-examples-1" class="step begin-example" data-x="13500" data-y="3000">
+<h1> Instrukcja warunkowa - if - przykłady </h1>
+<pre><code class="python">if 5 > 2:
+    print('Pięć jest większe od dwóch')
+if 3 < 7 <font color="#aa0">and</font> 7 < 19:
+    print('To też prawda')
+
+zmienna = True
+if zmienna and (3 - 5) > 0:
+    print('Czy to się wypisze?')
+else:
+    print('Czy jednak to?')
+</code></pre>
+</div>
+
+<div id="if-examples-2" class="step end-example" data-x="13500" data-y="3000">
+<h1> Instrukcja warunkowa - if - przykłady </h1>
+<pre><code class="python">if 5 > 2:
+    print('Pięć jest większe od dwóch')
+if 3 <font color="#aa0"><</font> 7 <font color="#aa0"><</font> 19:
+    print('To też prawda')
+
+zmienna = True
+if zmienna and (3 - 5) > 0:
+    print('Czy to się wypisze?')
+else:
+    print('Czy jednak to?')
+</code></pre>
+</div>
+
+<div id="if-negation" class="step" data-x="15000" data-y="3000">
+<h1> Negacja </h1>
+<h2> <strong> not </strong> </h2>
+<pre><code class="python">>>> not False
+True
+>>> not True or False
+False
+>>> not 2 > 24
+True
+>>> not (2 > 24)
+True
+</code></pre>
+</div>
+
+<div id="pass-1" class="step begin-example" data-x="16500" data-y="3000">
+<h1> Pominięcie - pusta operacja</h1>
+<h2> <strong>pass</strong> </h2>
+Nie może istnieć blok instrukcji bez ani jednej instrukcji
+<br/>
+<br/>
+<pre><code class="python">wiek = int(input())
+if wiek > 72:
+    print('Urodziłeś się dawno temu')
+elif wiek >= 18:
+    # nie robimy nic - BŁĄD!
+else:
+    print('Jesteś niepełnoletni')
+</code></pre>
+</div>
+
+<div id="pass-2" class="step end-example" data-x="16500" data-y="3000">
+<h1> Pominięcie - pusta operacja</h1>
+<h2> <strong>pass</strong> </h2>
+Nie może istnieć blok instrukcji bez ani jednej instrukcji
+<br/>
+<br/>
+<pre><code class="python">wiek = int(input())
+if wiek > 72:
+    print('Urodziłeś się dawno temu')
+elif wiek >= 18:
+    <font color="#aa0">pass</font>  # nie robimy nic
+else:
+    print('Jesteś niepełnoletni')
+</code></pre>
+</div>
+
+<div id="string-operations-index-1" class="step" data-x="18000" data-y="3000">
+<h1> Operacje na stringach </h1>
+<h2> Indeksowanie </h2>
+<pre><code class="python">>>> napis = 'PyLadies Wrocław 2016'
+>>> napis[0]
+'P'
+>>> napis[0:<font color="#aa0">8</font>]
+'PyLadies'
+>>> napis[9:]
+'Wrocław 2016'
+</code></pre>
+<br/>
+<pre><code class="python">PyLadies Wrocław 2016
+<font color="#2ae">01234567</font><font color="#aa0">8</font><font color="#2ae">9012345<font color="#aa0">6</font>7890</font>
+</code></pre>
+</div>
+
+<div id="string-operations-index-2" class="step" data-x="19500" data-y="3000">
+<h1> Operacje na stringach </h1>
+<h2> Indeksowanie wstecz</h2>
+<pre><code class="python">>>> napis = 'PyLadies Wrocław 2016'
+>>> napis[-1]
+'6'
+>>> napis[-4:]
+'2016'
+>>> napis[-12:-5]
+'Wrocław'
+>>> napis[-12:16]
+'Wrocław'
+</code></pre>
+<br/>
+<pre><code class="python">PyLadies Wrocław 2016
+<font color="#2ae">01234567</font><font color="#aa0">8</font><font color="#2ae">9012345<font color="#aa0">6</font>7890</font>
+</code></pre>
+</div>
+
+<div id="string-operations-index-4" class="step" data-x="21000" data-y="3000">
+<h1> Operacje na stringach </h1>
+<h2> Dodawanie i mnożenie</h2>
+<pre><code class="python">>>> napis = 'PyLadies Wrocław 2016'
+>>> napis + ' ' + napis
+'PyLadies Wrocław 2016 PyLadies Wrocław 2016'
+>>> napis[-12:-5] + ' ' + napis[0:8]
+'Wrocław PyLadies'
+>>> napis[0:8] * 3
+'PyLadiesPyLadiesPyLadies'
+</code></pre>
+<br/>
+<pre><code class="python">PyLadies Wrocław 2016
+<font color="#2ae">01234567</font><font color="#aa0">8</font><font color="#2ae">9012345<font color="#aa0">6</font>7890</font>
+</code></pre>
+</div>
+
+<div id="string-operations-methods-1" class="step" data-x="22500" data-y="3000">
+<h1> Operacje na stringach </h1>
+<pre><code class="python">>>> napis = 'PyLadies Wrocław 2016'
+>>> len(napis)
+21
+>>> napis.lower()
+'pyladies wrocław 2016'
+>>> napis.upper()
+'PYLADIES WROCŁAW 2016'
+>>> 'ala ma kota'.title()
+'Ala Ma Kota'
+>>> napis.replace('Wrocław', 'Python')
+'PyLadies Python 2016'
+>>> napis
+'PyLadies Wrocław 2016'
+</code></pre>
+</div>
+
+<div id="string-operations-methods-2" class="step" data-x="24000" data-y="3000">
+<h1> Operacje na stringach </h1>
+<pre><code class="python">>>> napis = 'PyLadies Wrocław 2016'
+>>> napis = napis.replace('Wrocław', 'Python')
+>>> napis
+'PyLadies Python 2016'
+>>> lang = napis[9:15].upper().replace('H', '') + ' 3'
+>>> lang
+'PYTON 3'
+</code></pre>
+</div>
+
+<div id="string-format-1" class="step" data-x="25500" data-y="3000">
+<h1> Formatowanie stringów </h1>
+<pre><code class="python">zm = 1
+'Sky {} to wieża numer {}'.format('Tower', zm)</code></pre>
+<br/>
+<center><img src="./images/arrow.png"/></center>
+<br/>
+<pre><code class="python">'Sky Tower to wieża numer 1'</code></pre>
+</code></pre>
+</div>
+
+<div id="string-format-2" class="step" data-x="27000" data-y="3000">
+<h1> Formatowanie stringów </h1>
+<pre><code class="python">zm = 1
+'Sky {1} to wieża numer {0}'.format('Tower'.lower(), zm)</code></pre>
+<br/>
+<center><img src="./images/arrow.png"/></center>
+<br/>
+<pre><code class="python">'Sky 1 to wieża numer tower'</code></pre>
+</code></pre>
+</div>
+
+<div id="docs-1" class="step" data-x="28500" data-y="3000">
+<h1> Używanie pomocy </h1>
+<h1> <strong> help </strong> </h1>
+<pre><code class="python">>>> help(str)
+>>> help(int)
+>>> help(print)
+>>> help(len)
+>>> help()  # pomoc interaktywna
+help> print
+</code></pre>
+</div>
+
+<div id="docs-2" class="step" data-x="30000" data-y="3000">
+<h1> Używanie pomocy </h1>
+<h2> <strong> dir() </strong> - lista nazw w aktualnym bloku</h2>
+<h2> <strong> dir(object) </strong> - lista atrybutów danego obiektu</h2>
+<pre><code class="python">>>> a = 'Test'
+>>> dir()
+['__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'a']
+>>> dir(a)
+...
+</code></pre>
+</div>
+
+<div id="docs-stack" class="step" data-x="31500" data-y="3000">
+<strong> Dokumentacja </strong> <a href="https://docs.python.org/3/">https://docs.python.org/3/</a>
+<br/>
+<br/>
+<strong> Odpowiedzi na wiele pytań </strong> <a href="http://stackoverflow.com/">http://stackoverflow.com/</a>
+<br/>
+<br/>
+<strong> Dobre praktyki i styl </strong> <br/>
+<a href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a>
+<br/>
+<br/>
+<strong> Książki </strong>
+<br/>
+Na początku nie warto. Zbyt wiele jest informacji w Internecie.<br/>
+Po opanowaniu podstaw i liźnięciu zaawansowanych rejonów. Gdy Internet przestanie wystarczać. Polecam wtedy poszukać tytułów dotycząców konkretnych tematów.
+<strong> Odradzam </strong> książki wydawnictwa Helion - dużo treści, mało wiedzy.
+</div>
+
+<div id="trening" class="step" data-x="33000" data-y="3000">
+<h1> Gdzie trenować </h1>
+<strong> SPOJ </strong> <a href="http://pl.spoj.com/">http://pl.spoj.com/</a><br/>
+Wiele zadań do wykonania. Można wybrać język. Jest Python 3 :)
+<br/>
+<br/>
+<strong> CodinGame </strong>
+<a href="https://www.codingame.com/start">https://www.codingame.com/start</a><br/>
+Uzupełniamy kody gier. Edytor jest online i pamięta nasze rozwiązania. Przygotowane są testy, więc wystarczy wypełnić funkcję odpowiednim kodem i sprawdzić czy zadziała.
+<br/>
+<br/>
+<strong>Samozaradność</strong>
+<br/>
+Znaleźć problem → rozwiązać.
+Na przykład:
+<ul>
+    <li> Jak śledzić zmiany na stronie www? </li>
+    <li> Napisz program, który poda Ci jaka jest pogoda we Wrocławiu </li>
+</ul>
+Wskazówka: To nie jest trudne. Rozbij problem na małe kroki. Na przykład <a href="#pogoda">Zadanie Pogoda</a>
+</div>
+
+<div id="docs-challenge" class="step" data-x="34500" data-y="3000">
+<h1> Zadanie </h1>
+<ul>
+    <li> Zapytaj użytkownika o imię, nazwisko i rok, w którym się urodził </li>
+    <li> Jeśli jego wiek jest podzielny przez 3, to napisz mu ile będzie miał lat za 20 lat </li>
+    <li> Jeśli nie jest, to wypisz mu tylko jego inicjały </li>
+</ul>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 3 -->
+<!--        -->
+<!--        -->
+
+<div id="part3" class="step" data-x="0" data-y="4500">
+    <h1>Część 3</h1>
+    <ul>
+        <li> Złożone typy danych </li>
+        <li> Pętla <strong>for</strong> </li>
+    </ul>
+</div>
+
+<div id="list" class="step" data-x="1500" data-y="4500">
+<h1> Lista </h1>
+<ul>
+<li> Służy do przechowywania wielu wartości </li>
+<li> Wartości mogą być różnego typu </li>
+</ul>
+<br/>
+<pre><code class="python">a = [132, 37, 13, 3]
+b = ['Ala', 'ma', 'kota']
+c = ['Ala', 3, 'kot', 'pies', 45.3]
+pusta = []
+tez_pusta = list()
+</code></pre>
+</div>
+
+<div id="list-assign-1" class="step begin-example" data-x="3000" data-y="4500">
+<h1> Lista - przypisywanie </h1>
+<br/>
+<pre><code class="python">>>> a = [1, 2, 3]
+>>> b = a
+>>> a = [4, 5, 6]
+>>> b
+[1, 2, 3]
+</code></pre>
+</div>
+
+<div id="list-assign-2" class="step end-example" data-x="3000" data-y="4500">
+<h1> Lista - przypisywanie </h1>
+<br/>
+<pre><code class="python">>>> a = [1, 2, 3]
+>>> b = a
+>>> <font color="#aa0">a[0]</font> = 200
+>>> b
+[<font color="#aa0">200</font>, 2, 3]
+</code></pre>
+</div>
+
+<div id="list-assign-3" class="step end-example" data-x="4500" data-y="4500">
+<h1> Lista - przypisywanie kopii</h1>
+<br/>
+<pre><code class="python">>>> a = [1, 2, 3]
+>>> b = list(a)
+>>> <font color="#aa0">a[0]</font> = 200
+>>> b
+[<font color="#aa0">1</font>, 2, 3]
+</code></pre>
+</div>
+
+<div id="list-assign-4" class="step" data-x="6000" data-y="4500">
+<h1> Lista - przyrównanie </h1>
+<ul>
+    <li> <strong> == </strong> - porównanie wartości </li>
+    <li> <strong> is </strong> - porównanie instancji </li>
+</ul>
+<br/>
+<pre><code class="python">>>> a = [1, 2, 3]
+>>> b = [1, 2, 3]
+>>> a == b
+True
+>>> a is b
+False
+</code></pre>
+</div>
+
+<div id="list-functions-example-1" class="step" data-x="7500" data-y="4500">
+<h1> Lista - funkcje </h1>
+<pre><code class="python">>>> a = [1, 2, 3, 6, 5, 4]
+>>> len(a)
+6
+>>> sum(a)
+21
+>>> min(a)
+1
+>>> max(a)
+6
+</code></pre>
+</div>
+
+<div id="list-functions-example-2" class="step" data-x="9000" data-y="4500">
+<h1> Lista - funkcje </h1>
+<pre><code class="python">>>> a = [45, 23, -233]
+>>> a.append(100)
+>>> a
+[45, 23, -233, 100]
+>>> a.sort()     # UWAGA lista została zmodyfikowana
+>>> a.reverse()  # UWAGA lista została zmodyfikowana
+>>> a
+[100, 45, 23, -233]
+</code></pre>
+</div>
+
+<div id="list-average" class="step" data-x="10500" data-y="4500">
+<h1> Lista  </h1>
+<h2> Przykład: średnia liczb </h2>
+<pre><code class="python">>>> a = [1, 2, 3, 6, 5, 4]
+>>> srednia = sum(a) / len(a)
+</code></pre>
+</div>
+
+<div id="list-average-problem" class="step" data-x="12000" data-y="4500">
+<h1> Lista  </h1>
+<h2> Przykład: średnia liczb </h2>
+<pre><code class="python">>>> a = ['1', '2', '3', '6', '5', '4']
+>>> srednia = sum(a) / len(a)
+<font color="#a00">???</font>
+</code></pre>
+<br/>
+Jaki jest problem?
+</div>
+
+<div id="list-functions-example-3" class="step" data-x="13500" data-y="4500">
+<h1> Lista - funkcje </h1>
+<pre><code class="python">>>> a = [1, 2, 4, 6, 5, 4, 'trzy', 44, [0, 1 ,2]]
+>>> a.index(5)
+4
+>>> a.count(2)
+1
+>>> a.remove(4)
+>>> a
+[1, 2, 6, 5, 4, 'trzy', 44, [0, 1, 2]]
+>>> a.clear()
+>>> a
+[]
+</code></pre>
+</div>
+
+<div id="list-contain" class="step begin-example" data-x="15000" data-y="4500">
+<h1> Lista </h1>
+<h1> <strong>in</strong> - test na zawieranie </h1>
+<pre><code class="python">>>> a = [1, 2, 3, 6, 5, 4]
+>>> 3 in a
+True
+>>> 834 not in a
+True
+</code></pre>
+</div>
+
+<div id="string-contain" class="step end-example" data-x="15000" data-y="4500">
+<h1> String </h1>
+<h1> <strong>in</strong> - test na zawieranie </h1>
+<pre><code class="python">>>> a = '123654'
+>>> '3' in a
+True
+>>> '834' not in a
+True
+</code></pre>
+</div>
+
+<div id="list-functions-challenge" class="step" data-x="16500" data-y="4500">
+<h1> Zadanie </h1>
+<ul>
+    <li> Poproś użykownika o wyraz dłuższy niż 10 znaków </li>
+    <li> Jeśli poda krótszy, to zakończ program </li>
+    <li> Wypisz liczbę samogłosek </li>
+</ul>
+</div>
+
+<div id="dict" class="step" data-x="18000" data-y="4500">
+<h1> Słownik </h1>
+<h1> klucz → wartość </h1>
+<br/>
+<strong>Konstrukcja</strong>
+<pre><code class="python">{
+    klucz: wartosc,
+    klucz: wartosc,
+    ...
+}
+</code></pre>
+</div>
+
+<div id="dict-creating" class="step" data-x="19500" data-y="4500">
+<h1> Tworzenie słownika </h1>
+<pre><code class="python">>>> a = {'raz': 1, 'dwa': 2, 'trzy': 3}
+
+>>> b = {}
+>>> b['raz'] = 1
+>>> b['dwa'] = 2
+>>> b['trzy'] = 3
+
+>>> c = dict()
+>>> c['raz'] = 1
+>>> c['dwa'] = 2
+>>> c['trzy'] = 3
+</code></pre>
+</div>
+
+<div id="dict-example" class="step" data-x="21000" data-y="4500">
+<h1> Słownik - przykład zastosowania</h1>
+<pre><code class="python">dane = {'imie': 'Krzysztof', 'wiek': 43}
+>>> dane['imie']
+'Krzysztof'
+
+>>> szablon1 = '{} ma {} lat'
+>>> zdanie1 = szablon1.format(dane['imie'], dane['wiek'])
+
+>>> szablon2 = '{imie} ma {wiek} lat'
+>>> zdanie2 = szablon2.format(**dane)
+</code></pre>
+</div>
+
+<div id="dict-key" class="step" data-x="22500" data-y="4500">
+<h1> Słownik </h1>
+<strong>klucz → wartość</strong>
+<br/>
+Co może być wartością? - Prawie wszystko
+<br/>
+Co może być kluczem? - Sprawdźmy
+<br/>
+<br/>
+<pre><code class="python">{
+    'klucz': 5,    <font color="#0a2">OK</font>
+    5: [1, 2, 3],  <font color="#0a2">OK</font>
+    [5, 4]: '123'  <font color="#a20">ERROR</font>
+}
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+TypeError: <font color="#aa0">unhashable type</font>: 'list'
+</code></pre>
+</div>
+
+<div id="dict-hashable-type" class="step" data-x="24000" data-y="4500">
+<h1> Słownik - typ klucza </h1>
+<ul>
+<li> Google: python hashable type </li>
+<li> Pierwszy wynik: stackoverflow
+<a href="http://stackoverflow.com/questions/14535730/what-do-you-mean-by-hashable-in-python">
+http://stackoverflow.com/questions/14535730/what-do-you-mean-by-hashable-in-python
+</a></li>
+<li> Dowiadujemy się, że <font color="#666"><i>"(...) it needs a __hash__() method (...)</i>"</font></li>
+<li> Sprawdzamy jakie metody posiada lista <pre><code class="python">>>> help(list)</code></pre></li>
+<li> Szukamy słowa __hash__ za pomocą:
+<pre><code class="python">/__hash__[ENTER]</code></pre>
+<li> Porównujemy z innym typem, który może być kluczem (np: int) </li>
+</ul>
+</div>
+
+<div id="for" class="step" data-x="25500" data-y="4500">
+<h1> Pętla for </h1>
+<pre><code class="python">dla każdego i w zbiorze [0, 1, 2, 3, 4] wykonaj:
+    wypisz i
+    wypisz 'Hello'
+</code></pre>
+<br/>
+czyli
+<br/>
+<br/>
+<pre><code class="python">for i in [0, 1, 2, 3, 4]:
+    print(i)
+    print('Hello')
+</code></pre>
+</div>
+
+<div id="for-range" class="step" data-x="27000" data-y="4500">
+<h1> Pętla for + sekwencja range</h1>
+<pre><code class="python">for i in [0, 1, 2, 3, 4]:
+    print(i)
+    print('Hello')
+</code></pre>
+<br/>
+możemy zamienić na
+<br/>
+<pre><code class="python">for i in range(5):
+    print(i)
+    print('Hello')
+</code></pre>
+<br/>
+A co jeśli nie chcemy zaczynać od zera?
+<pre><code class="python">>>> help(range)</code></pre>
+</div>
+
+<div id="range" class="step" data-x="28500" data-y="4500">
+<h1> range </h1>
+<pre><code class="python">>>> help(range)
+range(start, stop[, step]) -> range object
+</code></pre>
+<br/>
+<pre><code class="python">>>> range(12, 23, 2)
+range(12, 23, 2)
+
+>>> list(range(12, 23, 2))
+[12, 14, 16, 18, 20, 22]
+</code></pre>
+</div>
+
+<div id="for-list-example" class="step" data-x="30000" data-y="4500">
+<h1> Zagadka </h1>
+<h2> Co zostanie wypisane w poniższych pętlach? </h2>
+<pre><code class="python">for i in 'Ala ma kota':
+    print(i)
+</code></pre>
+<br/>
+<pre><code class="python">for i in ['Ala ma kota']:
+    print(i)
+</code></pre>
+<br/>
+<pre><code class="python">for i in 'Ala ma kota'.split():
+    print(i)
+</code></pre>
+</div>
+
+<div id="str-split" class="step" data-x="31500" data-y="4500">
+<h1> str<strong>.split()</strong> </h1>
+<h2> Rozszczepianie stringa, domyślne według białych znaków </h2>
+<pre><code class="python">>>> 'Ala ma kota'.split()
+['Ala', 'ma', 'kota']
+</code></pre>
+<br/>
+<h1> str<strong>.join(list)</strong> </h1>
+<h2> Złączenie elementów listy przy pomocy łącznika </h2>
+<pre><code class="python">>>> '-'.join(['Ala', 'ma', 'kota'])
+Ala-ma-kota
+</code></pre>
+</div>
+
+<div id="for-string-list-challenge" class="step" data-x="33000" data-y="4500">
+<h1> Zadanie </h1>
+<ul>
+    <li> Poproś użytkownika o co najmniej 3 wyrazy </li>
+    <li> Jeśli poda mniej, to zakończ program </li>
+    <li> Wypisz słowa w odwrotnej kolejności </li>
+</ul>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 4 -->
+<!--        -->
+<!--        -->
+
+<div id="part4" class="step" data-x="0" data-y="6000">
+    <h1>Część 4</h1>
+    <ul>
+        <li> Funkcja </li>
+        <li> Importowanie modułów </li>
+        <li> Przydatne biblioteki </li>
+    </ul>
+</div>
+
+<div id="function" class="step" data-x="1500" data-y="6000">
+<h1> Funkcja </h1>
+<h2><strong>Konstrukcja</strong>
+<pre><code class="python">def nazwa(argumenty):
+    instrukcje
+    return wynik
+</code></pre>
+<h2><strong>Wywołanie</strong>
+<pre><code class="python">nazwa(parametry)</code></pre>
+<pre><code class="python">a = nazwa(parametry)</code></pre>
+</div>
+
+<div id="function-example-1" class="step" data-x="3000" data-y="6000">
+<h1> Funkcja - przykład </h1>
+<pre><code class="python">>>> def pole_kola(r):
+...    wynik = 3.14 * r * r
+...    return wynik
+...
+</code></pre>
+<br/>
+<pre><code class="python">>>> pole_kola(10)
+314.0
+</code></pre>
+</div>
+
+<div id="function-example-2" class="step" data-x="4500" data-y="6000">
+<h1> Funkcja - przykład </h1>
+<pre><code class="python">>>> def hello(imie):
+...    print('Cześć', imie)
+...
+</code></pre>
+<br/>
+<pre><code class="python">>>> hello('Krysia')
+Cześć Krysia
+</code></pre>
+</div>
+
+<div id="function-example-fractions" class="step" data-x="6000" data-y="6000">
+<h1> Funkcja - dodawanie ułamków </h1>
+<pre><code class="python">>>> print(fracs_add('3/4', '7/3'))
+30/9
+</code></pre>
+<br/>
+<pre><code class="python">def fracs_add(first, second):
+    a, b = first.split('/')
+    c, d = second.split('/')
+    a, b = int(a), int(d)
+    c, d = int(c), int(b)
+    x = (a * d + c * b)
+    y = (b * d)
+    return '{}/{}'.format(x, y)
+</code></pre>
+<br/>
+Dobrze jest? <a href="#example-fractions-declarative-howto">Skocz do wersji deklaratywnej</a>
+</div>
+
+<div id="function-fractions-imperative-cons" class="step" data-x="7500" data-y="6000">
+<h1> Rozwiązywanie problemów </h1>
+<h2> <strong>Imperatywne</strong>  </h2>
+<ul>
+    <li> programista opisuje proces jako sekwencję instrukcji </li>
+    <li> łatwo o pomyłkę </li>
+    <li> wystarczą podstawy do rozwiązania wielu problemów </li>
+</ul>
+<br/>
+<h2> <strong>Deklaratywne</strong> </h2>
+<ul>
+    <li> programista opisuje warunki, jakie musi spełniać końcowe rozwiązanie </li>
+    <li> trudniej o pomyłkę </li>
+</ul>
+</div>
+
+<div id="module-import" class="step" data-x="9000" data-y="6000">
+<h1> Moduły </h1>
+<h2> Spis modułów </h2>
+<a href="https://docs.python.org/3/py-modindex.html">https://docs.python.org/3/py-modindex.html</a>
+<br/>
+<br/>
+<pre><code class="python">>>> import time
+>>> time.sleep(4)
+</code></pre>
+<br/>
+<pre><code class="python">>>> from time import sleep
+>>> sleep(4)
+</code></pre>
+<br/>
+<pre><code class="python">>>> from time import sleep as zaczekaj
+>>> zaczekaj(4)
+</code></pre>
+</div>
+
+<div id="example-fractions-declarative-howto" class="step" data-x="10500" data-y="6000">
+<h1> Ułamki - sposób deklaratywny </h1>
+<ul>
+<li> google: how to represent fraction in python </li>
+<li> ktoś napisał na stacku
+<pre><code class="python">>>> from fractions import Fraction
+>>> print(Fraction(5, 6))
+5/6
+</li>
+<li> google: python 3 fractions module </li>
+<li> zatem
+<pre><code class="python">from fractions import Fraction
+def fracs_add(first, second):
+    result = Fraction(first) + Fraction(second)
+    return str(result)
+</code></pre>
+</li>
+<br/>
+<a href="#function-example-fractions">Skocz do wersji imperatywnej</a>
+</div>
+
+<div id="modules-time" class="step" data-x="12000" data-y="6000">
+<h1> import <strong>time</strong> </h1>
+<ul>
+    <li> pobieranie czasu </li>
+    <li> odmierzanie czasu </li>
+</ul>
+</div>
+
+<div id="modules-math" class="step" data-x="13500" data-y="6000">
+<h1> import <strong>math</strong> </h1>
+<ul>
+    <li> sufit, podłoga, silnia... </li>
+    <li> największy wspólny dzielnik (gcd) </li>
+    <li> stopnie ←→ radiany </li>
+    <li> funkcje trygonometryczne </li>
+    <li> stałe, np: π </li>
+</ul>
+</div>
+
+<div id="modules-urllib" class="step" data-x="15000" data-y="6000">
+<h1> import <strong>urllib.request</strong> </h1>
+<pre><code class="python">import urllib.request
+data = urllib.request.urlopen('http://www.python.org').read()
+print(data)
+</code></pre>
+</div>
+
+<!--           -->
+<!--           -->
+<!-- Exercises -->
+<!--           -->
+<!--           -->
+
+<div id="exercises" class="step" data-x="0" data-y="7500">
+    <h1>Zadania</h1>
+    <br/>
+    <ul>
+        <li> Brzuszki </li>
+        <li> FizzBuzz  </li>
+        <li> Równanie kwadratowe </li>
+    </ul>
+</div>
+
+<div id="exercises-brzuszki" class="step" data-x="1500" data-y="7500" data-rotate-z="25" data-rotate-x="50">
+    <h1> Brzuszki </h1>
+    <ul>
+        <li> Wczytaj liczbę </li>
+        <li> Policz brzuszki </li>
+        <li> Brzuszek to zamknięty obszar w cyfrze, np: 6 ma jeden, 8 ma dwa </li>
+        <li> Nie używaj instruckji if </li>
+        <li> Wskazówka: zastosuj słownik (dict) </li>
+    </ul>
+</div>
+
+<div id="exercises-fizzbuzz" class="step" data-x="3000" data-y="7500" data-rotate-z="50" data-rotate-x="100">
+    <h1> FizzBuzz </h1>
+    <ul>
+        <li> Wyświetl liczby od 1 do 100 </li>
+        <li> Jeśli liczba jest podzielna przez 3, to zamiast niej wyświetl Fizz </li>
+        <li> Jeśli liczba jest podzielna przez 5, to zamiast niej wyświetl Buzz </li>
+        <li> Jeśli liczba jest podzielna przez 3 i 5, to zamiast niej wyświetl FizzBuzz </li>
+    </ul>
+</div>
+
+<div id="exercises-kwadratowe" class="step" data-x="4500" data-y="7500" data-rotate-z="75" data-rotate-x="150">
+    <h1> Rozwiąż równanie kwadratowe </h1>
+    <p> ax<sup>2</sup> + bx + c = 0 </p>
+    <br/>
+    <ul>
+        <li> Wczytaj a, b, c </li>
+        <li> Podaj rozwiązanie </li>
+        <li> Napisz funkcję, która rozwiąże serię równań, np:
+        <pre><code class="python">[[1, 2, 3], [65, 200, 3], [0, 0, 1]]</code></pre>
+        </li>
+    </ul>
+</div>
+
+<div id="exercises-pogoda" class="step" data-x="6000" data-y="7500" data-rotate-z="75" data-rotate-x="150">
+    <h2> <strong> Zadanie z gwiazdką </strong>: Jaka jest pogoda we Wrocławiu? </h2>
+    <ul>
+        <li> Wybierz serwis pogodowy</li>
+        <li> Nie panikuj, jest moduł <a href="#modules-urllib">urlib</a></li>
+        <li> Użyj linka z adresu, pod którym na stronie jest informacja o na przykład temperaturze </li>
+        <li> Wyłuskaj np: temperaturę z danych z tej strony </li>
+        <li> Wskazówka: Metody split możesz użyć by rozszczepiać stringa jak tylko chcesz, nawet na wyrazach </li>
+        <li> Wskazówka nr 2:
+            <pre><code class="python"> >>> a = 'Wrocław: 24 stopnie, Poznań: -12 stopni'
+>>> b = a.split('Wrocław: ')
+>>> c = b[1].split(',')[0]
+>>> c
+'24 stopnie'</code></pre>
+        </li>
+    </ul>
+</div>
+
+<div id="alldivs" class="step" data-x="0" data-y="9000">
+<a href="#title">title</a>
+<a href="#part1">part1</a>
+<a href="#interpreter">interpreter</a>
+<a href="#interpreter_run">interpreter_run</a>
+<a href="#interpreter_versions">interpreter_versions</a>
+<a href="#interpreter_commands">interpreter_commands</a>
+<a href="#interpreter_exit">interpreter_exit</a>
+<a href="#data-types">data-types</a>
+<a href="#variable">variable</a>
+<a href="#keywords">keywords</a>
+<a href="#variable-examples">variable-examples</a>
+<a href="#variable-types">variable-types</a>
+<a href="#variable-assign">variable-assign</a>
+<a href="#variable-multiassign">variable-multiassign</a>
+<a href="#variable-change-type">variable-change-type</a>
+<a href="#arithmetic-operators">arithmetic-operators</a>
+<a href="#arithmetic-operations-addition">arithmetic-operations-addition</a>
+<a href="#arithmetic-operations-multiplication">arithmetic-operations-multiplication</a>
+<a href="#strings">strings</a>
+<a href="#strings-form">strings-form</a>
+<a href="#print">print</a>
+<a href="#cast-int">cast-int</a>
+<a href="#cast-str">cast-str</a>
+<a href="#cast-none">cast-none</a>
+<a href="#input-cant-convert-1">input-cant-convert-1</a>
+<a href="#input-cant-convert-2">input-cant-convert-2</a>
+<a href="#example-calculator-question">example-calculator-question</a>
+<a href="#example-calculator-answer">example-calculator-answer</a>
+<a href="#part2">part2</a>
+<a href="#script">script</a>
+<a href="#script-calculator">script-calculator</a>
+<a href="#script-calculator-comments">script-calculator-comments</a>
+<a href="#script-calculator-comments-multiline-1">script-calculator-comments-multiline-1</a>
+<a href="#script-calculator-comments-multiline-2">script-calculator-comments-multiline-2</a>
+<a href="#script-calculator-comments-multiline-3">script-calculator-comments-multiline-3</a>
+<a href="#if">if</a>
+<a href="#indentation">indentation</a>
+<a href="#if-conditions">if-conditions</a>
+<a href="#if-conditions-join">if-conditions-join</a>
+<a href="#if-conditions-join">if-conditions-join</a>
+<a href="#if-conditions-join-2">if-conditions-join-2</a>
+<a href="#if-examples-1">if-examples-1</a>
+<a href="#if-examples-2">if-examples-2</a>
+<a href="#if-negation">if-negation</a>
+<a href="#pass-1">pass-1</a>
+<a href="#pass-2">pass-2</a>
+<a href="#string-operations-index-1">string-operations-index-1</a>
+<a href="#string-operations-index-2">string-operations-index-2</a>
+<a href="#string-operations-index-4">string-operations-index-4</a>
+<a href="#string-operations-methods-1">string-operations-methods-1</a>
+<a href="#string-operations-methods-2">string-operations-methods-2</a>
+<a href="#string-format-1">string-format-1</a>
+<a href="#string-format-2">string-format-2</a>
+<a href="#docs-1">docs-1</a>
+<a href="#docs-2">docs-2</a>
+<a href="#docs-stack">docs-stack</a>
+<a href="#trening">trening</a>
+<a href="#docs-challenge">docs-challenge</a>
+<a href="#part3">part3</a>
+<a href="#list">list</a>
+<a href="#list-assign-1">list-assign-1</a>
+<a href="#list-assign-2">list-assign-2</a>
+<a href="#list-assign-3">list-assign-3</a>
+<a href="#list-assign-4">list-assign-4</a>
+<a href="#list-functions-example-1">list-functions-example-1</a>
+<a href="#list-functions-example-2">list-functions-example-2</a>
+<a href="#list-average">list-average</a>
+<a href="#list-average-problem">list-average-problem</a>
+<a href="#list-functions-example-3">list-functions-example-3</a>
+<a href="#list-contain">list-contain</a>
+<a href="#string-contain">string-contain</a>
+<a href="#list-functions-challenge">list-functions-challenge</a>
+<a href="#dict">dict</a>
+<a href="#dict-creating">dict-creating</a>
+<a href="#dict-example">dict-example</a>
+<a href="#dict-key">dict-key</a>
+<a href="#dict-hashable-type">dict-hashable-type</a>
+<a href="#for">for</a>
+<a href="#for-range">for-range</a>
+<a href="#range">range</a>
+<a href="#for-list-example">for-list-example</a>
+<a href="#str-split">str-split</a>
+<a href="#for-string-list-challenge">for-string-list-challenge</a>
+<a href="#part4">part4</a>
+<a href="#function">function</a>
+<a href="#function-example-1">function-example-1</a>
+<a href="#function-example-2">function-example-2</a>
+<a href="#function-example-fractions">function-example-fractions</a>
+<a href="#function-fractions-imperative-cons">function-fractions-imperative-cons</a>
+<a href="#module-import">module-import</a>
+<a href="#example-fractions-declarative-howto">example-fractions-declarative-howto</a>
+<a href="#modules-time">modules-time</a>
+<a href="#modules-math">modules-math</a>
+<a href="#modules-urllib">modules-urllib</a>
+<a href="#exercises">exercises</a>
+<a href="#exercises-brzuszki">exercises-brzuszki</a>
+<a href="#exercises-fizzbuzz">exercises-fizzbuzz</a>
+<a href="#exercises-kwadratowe">exercises-kwadratowe</a>
+<a href="#exercises-pogoda">exercises-pogoda</a>
+</div>
+
+</div> <!-- impress -->
+
+<script src="js/impress.js"></script>
+<script> impress().init(); </script>
+<script> hljs.initHighlightingOnLoad(); </script>
+
+</body>
+</html>
