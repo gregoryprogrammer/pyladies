@@ -781,3 +781,9 @@ span.keyword {
 #alldivs a {
     font-size: 24px;
 }
+
+span.mini-desc
+{
+    color: #3771a2;
+    font-size: 14px;
+}
