@@ -1,0 +1,1029 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>PyLadies - Python3 - Warsztaty dla początkujących</title>
+
+    <meta name="description" content="PyLadies Python3 basics" />
+    <meta name="author" content="Grzegorz Gwóźdź" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="lib/highlight/styles/ascetic-dark.css">
+    <script src="lib/highlight/highlight.pack.js"></script>
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<a href="#title">Home</a>
+<a href="#alldivs">alldivs</a>
+<a href="../pyladies-wroclaw-warsztaty_2016_12_03.tar.gz"> Pobierz </a>
+<br/>
+<span class="mini-desc">
+Prezentacja dostosowana do rozdzielczości 1920x1080.
+</span>
+<br/>
+<span class="mini-desc"> Przygotował: Grzegorz Gwóźdź. </span>
+<span class="mini-desc"> 2017/02/26 </span>
+
+
+<div id="impress">
+
+<div id="title" class="step" data-x="0" data-y="0" data-z="0" data-rotate-y="60">
+    <div class="python-logo">
+        <img src="./images/python_with_shadow.png"/>
+        <h1>Python</h1>
+    </div>
+    <div class="python-logo">
+        <img src="./images/pyladies_head.png"/>
+        <img src="./images/pyladies_logo.png" class="rotate90">
+        <h2> Warsztaty dla początkujących. Drugie spotkanie.</h2>
+    </div>
+    Część:
+    <a href="#part1">1</a>
+    <a href="#part2">2</a>
+    <a href="#part3">3</a>
+    <a href="#part4">4</a>
+    <a href="#exercises">Zadanie</a>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 1 -->
+<!--        -->
+<!--        -->
+
+<div id="part1" class="step" data-x="0" data-y="1500">
+    <h1>Część 1a. Przypomnienie.</h1>
+    <ul>
+        <li> Interpreter, skrypt </li>
+        <li> Typy danych, konwersja </li>
+        <li> Wczytywanie danych </li>
+        <li> Warunki, wcięcia </li>
+        <li> Operacje na stringach, formatowanie </li>
+        <li> Konwersja typów </li>
+        <li> Lista, for, range </li>
+        <li> Funkcja, moduł </li>
+    </ul>
+    <br/>
+    <h1>Część 1b. Słownik.</h1>
+</div>
+
+<div id="p1a-interpreter_script" class="step" data-x="1500" data-y="1500">
+<h1> Interpreter </h1>
+<pre><code class="bash">$ python3 [ENTER]
+Python 3.6.0 (default, Jan 16 2017, 12:12:55)
+[GCC 6.3.1 20170109] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+</code></pre>
+<br/>
+<h1> Skrypt </h1>
+<pre><code class="bash">$ python3 plik.py [ENTER]</code></pre>
+</div>
+
+<div id="p1a-types" class="step" data-x="3000" data-y="1500">
+<h1> Typy danych </h1>
+<strong>int</strong>, <strong>float</strong>, <strong>str</strong>, <strong>bool</strong>, <strong>NoneType</strong>
+<br/>
+<br/>
+<h1> Konwersja </h1>
+<pre><code class="python">>>> a = 5
+>>> type(a)
+&ltclass 'int'&gt
+>>> a = str(a)
+>>> type(a)
+&ltclass 'str'&gt
+</code></pre>
+</div>
+
+<div id="p1a-input" class="step" data-x="4500" data-y="1500">
+<h1> Wczytywanie danych </h1>
+<pre><code class="python">>>> a = input()
+7
+>>> b = input()
+2
+>>> a + b
+'72'
+>>> int(a) + int(b)
+9
+</code></pre>
+</div>
+
+<div id="p1a-if_indent" class="step" data-x="6000" data-y="1500">
+<h1> Instrukcje warunkowe, wcięcia.</h1>
+<pre><code class="python">if warunek:
+<font color="#0aa">||||</font>blok 1
+elif inny_warunek:
+<font color="#0aa">||||</font>blok 2
+<font color="#0aa">||||</font>blok 2
+<font color="#0aa">||||
+wcięcie na 4 spacje</font>
+</div>
+
+<div id="p1a-string" class="step" data-x="7500" data-y="1500">
+<h1> Operacje na stringach </h1>
+<pre><code class="python">>>> 'Ala' + ' ' + 'ma' + ' ' + 'kota'
+
+>>> ' '.join(['Ala', 'ma', 'kota'])
+
+>>> imie, zwierze = 'Ala', 'kot'
+>>> '{} ma {}a'.format(imie, zwierze)
+</code></pre>
+</div>
+
+<div id="p1a-list" class="step" data-x="9000" data-y="1500">
+<h1> Lista </h1>
+<pre><code class="python">>>> sum([1, 2883, 3, 8, 20, 3])
+
+>>> list(reversed([1, 2, 3]))
+
+>>> [2, 3, 5, 7, 8, 10][3]
+7
+>>> [2, 3, 5, 7, 8, 10][3:5]
+[7, 8]
+
+>>> list(range(4))
+[0, 1, 2, 3]
+</code></pre>
+<br/>
+<strong>len</strong>, <strong>min</strong>, <strong>max</strong>, <strong>append</strong>, <strong>pop</strong> ...
+</div>
+
+<div id="p1a-for" class="step" data-x="10500" data-y="1500">
+<h1> Pętla <strong> for </strong></h1>
+<pre><code class="python">for i in range(10):
+    print(i)
+
+trzy = 3
+for i in [1, 'dwa', trzy]:
+    print('hahaha = {}'.format(i))
+
+text = 'Ala'
+for c in ' ma kota':
+    text = text + c
+</code></pre>
+</div>
+
+<div id="p1a-function" class="step" data-x="12000" data-y="1500">
+<h1> Funkcja </h1>
+<pre><code class="python">def zapytaj_o_imie():
+    tmp = input('Podaj imię: ')
+    return tmp
+
+def przywitaj(x):
+    print('Dzień dobry {}'.format(x))
+
+imie = zapytaj_o_imie()
+przywitaj(imie)
+</code></pre>
+</div>
+
+<div id="p1a-module" class="step" data-x="13500" data-y="1500">
+<h1> Moduły, biblioteki</h1>
+<pre><code class="python">>>> import time
+>>> sekundy_wczesniej = time.time()
+
+
+     <font color="#9898ED">... JAKIEŚ OBLICZENIA ...</font>
+
+
+>>> sekundy_teraz = time.time()
+>>> sekundy_teraz - sekundy_wczesniej
+13.704752206802368
+</code></pre>
+</div>
+
+<div id="p1b-dict" class="step" data-x="15000" data-y="1500">
+<h1> Słownik </h1>
+<pre><code class="python">>>> user = {}
+>>> user['name'] = 'Tomek'
+>>> user['job'] = 'Programista C++'
+>>> user
+{'name': 'Tomek', 'job': 'Programista C++'}
+>>> user['name']
+'Tomek'
+</code></pre>
+</div>
+
+<div id="p1b-dict-get" class="step" data-x="16500" data-y="1500">
+<h1> Słownik - [ ] czy get </h1>
+<pre><code class="python">>>> user = {}
+>>> user['name'] = 'Tomek'
+>>> user['job'] = 'Programista C++'
+
+>>> imie = user['name3123']
+Traceback (most recent call last):
+  File "&ltstdin&gt", line 1, in &ltmodule&gt
+KeyError: 'name3123'
+
+>>> imie = user.get('name3123')
+>>> type(imie)
+&ltclass 'NoneType'&gt
+</code></pre>
+</div>
+
+<div id="p1b-dict-del" class="step" data-x="18000" data-y="1500">
+<h1> Słownik - del </h1>
+<pre><code class="python">>>> user = {}
+>>> user['name'] = 'Tomek'
+>>> user['job'] = 'Programista C++'
+>>> user
+{'name': 'Tomek', 'job': 'Programista C++'}
+
+>>> del user['name']
+>>> user
+{'job': 'Programista C++'}
+
+>>> del user.get('job')
+  File "&ltstdin&gt", line 1
+SyntaxError: can't delete function call
+</code></pre>
+</div>
+
+<div id="p1b-dict-enum" class="step" data-x="19500" data-y="1500">
+<h1> Słownik.items() </h1>
+<pre><code class="python">user = {}
+user['name'] = 'Tomek'
+user['job'] = 'Programista C++'
+
+for key, value in user.items();
+    print(key, '=', value)
+</code></pre>
+<br/>
+Wynik:
+<pre><code class="python">name = Tomek
+job = Programista C++
+</code></pre>
+</div>
+
+<div id="p1b-max" class="step" data-x="21000" data-y="1500">
+<h1> Jak to działa?</h1>
+<pre><code class="python">>>> sum(1, 2, 3)
+6
+>>> sum(1, 2, 3, 7)
+13
+>>> sum(1, 2, 3, 7, 7)
+20
+</code></pre>
+</div>
+
+<div id="p1b-argparam" class="step" data-x="22500" data-y="1500">
+<h1> Argument czy parametr? </h1>
+<pre><code class="python">def my_function(parametr):
+    print('Hello')
+
+my_function(argument)
+</code></pre>
+<br/>
+</div>
+
+<div id="p1b-nargs" class="step" data-x="24000" data-y="1500">
+<h1> Wieloargument </h1>
+<pre><code class="python">def my_sum(*args):
+    s = 0
+    for arg in args:
+        s = s + arg
+    return s
+</code></pre>
+<br/>
+<pre><code class="python">my_sum(81, 2, 5, 4, 4)
+</code></pre>
+<br/>
+Gwiazdka przy parametrze - utworzenie listy z argumentów
+</div>
+
+<div id="p1b-nparams" class="step" data-x="25500" data-y="1500">
+<h1> Wieloparametr </h1>
+<pre><code class="python">def give_me_four(a, b, c, d):
+    return a + b + c + d
+</code></pre>
+<br/>
+<pre><code class="python">numbers = [4, 3, 1, 5]
+give_me_four(*numbers)
+</code></pre>
+<br/>
+Gwiazdka przy argumencie - "rozpakowanie" listy
+</div>
+
+<div id="p1b-kwargs" class="step" data-x="27000" data-y="1500">
+<h1> kwargs - KeyWord ARGumentS </h1>
+<pre><code class="python">def show(**kwargs):
+    for key, value in kwargs.items():
+        print(key, '=', value)
+</code></pre>
+<br/>
+<pre><code class="python">show(name='Kamil', job='Programista')
+</code></pre>
+<br/>
+<h2> Nazwane argumenty </h2>
+</div>
+
+<div id="p1b-args-kwargs" class="step" data-x="28500" data-y="1500">
+<h1> Można mieszać, ale musi zostać zachowana kolejność</h1>
+<pre><code class="python">def foo(a, b, *args, **kwargs):
+    pass
+</code></pre>
+</div>
+
+<div id="p1b-exercise-1" class="step" data-x="30000" data-y="1500">
+<h1> Zadanie </h1>
+<strong>minmax</strong>
+<br/>
+<br/>
+Napisz funkcję, która w podanym zbiorze liczb znajdzie wartość najmniejszą i największą.
+<br/>
+<br/>
+<pre><code class="python">>>> minmax(4, 6, 3, 88, 23, 1, 9)
+(1, 88)
+>>> minmax([4, 6, 3, 88, 23, 1, 9])
+(1, 88)
+</code></pre>
+</div>
+
+<div id="p1b-example" class="step" data-x="31500" data-y="1500">
+<h1> Przykład </h1>
+<strong>Wizytówka</strong> - wypisz dane użytkownika w ramce
+</div>
+
+<div id="p1b-exercise-2" class="step" data-x="33000" data-y="1500">
+<h1> Zadanie </h1>
+<strong>Wizytówki</strong>
+<br/>
+<br/>
+Wczytaj od użytkownika dane osób. Tak długo jak użytkownik będzie chciał to robić. Na koniec wyświetl w formie wizytówek wszystkie zgromadzone dane.
+<br/>
+<br/>
+Wskazówki
+<ul>
+    <li> Zaprojektuj słownik na dane użytkownika (pięć pól) </li>
+    <li> Napisz funkcję, która zapyta o te dane i zwróci słownik </li>
+    <li> Pętla for </li>
+</ul>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 2 -->
+<!--        -->
+<!--        -->
+
+<div id="part2" class="step" data-x="0" data-y="3000">
+    <h1>Część 2.</h1>
+    <ul>
+        <li> Kontrola pętli: <strong> break </strong>, <strong> continue </strong>, <strong> else </strong> </li>
+        <li> Pętla while </li>
+        <li> Rekurencja </li>
+    </ul>
+</div>
+
+<div id="p2-for-break" class="step" data-x="1500" data-y="3000">
+<h1> <strong>for</strong> - break</h1>
+<pre><code class="python">for i in range(10):
+    if i == 7:
+        break
+    print('i =', i)
+</code></pre>
+</div>
+
+<div id="p2-for-continue" class="step" data-x="3000" data-y="3000">
+<h1> <strong>for</strong> - continue</h1>
+<pre><code class="python">for i in range(10):
+    if i == 7:
+        continue
+    print('i =', i)
+</code></pre>
+</div>
+
+<div id="p2-for-else-1" class="step begin-example" data-x="4500" data-y="3000">
+<h1> <strong>for</strong> - else</h1>
+<pre><code class="python">for i in range(10):
+    if i == 7:
+        break
+else:
+    print('To się nie wypisze')
+</code></pre>
+</div>
+
+<div id="p2-for-else-2" class="step end-example" data-x="4500" data-y="3000">
+<h1> <strong>for</strong> - else</h1>
+<pre><code class="python">for i in range(10):
+    if i == 17:
+        break
+else:
+    print('To się wypisze')
+</code></pre>
+</div>
+
+<div id="p2-while-1" class="step" data-x="6000" data-y="3000">
+<h1> Pętla <strong>while</strong></h1>
+<pre><code class="python">while warunek:
+    instrukcja
+    instrukcja
+    instrukcja
+</code></pre>
+</div>
+
+<div id="p2-while-2" class="step" data-x="7500" data-y="3000">
+<h1> Pętla <strong>while</strong></h1>
+<pre><code class="python">x = 5
+while x > 0:
+    print('x = ', x)
+    x = x - 2
+</code></pre>
+</div>
+
+<div id="p2-factorial" class="step" data-x="9000" data-y="3000">
+<h1> Silnia </h1>
+n! = n * (n - 1)!
+<br/>
+0! = 1
+<br/>
+<br/>
+5! = 5 * 4!
+<br/>
+5! = 5 * 4 * 3!
+<br/>
+5! = 5 * 4 * 3 * 2!
+<br/>
+5! = 5 * 4 * 3 * 2 * 1!
+<br/>
+5! = 5 * 4 * 3 * 2 * 1 * 0!
+<br/>
+5! = 5 * 4 * 3 * 2 * 1 * 1
+<br/>
+5! = 120
+</div>
+
+<div id="p2-factorial-iter" class="step" data-x="10500" data-y="3000">
+<h1> Silnia - iteracyjnie </h1>
+<pre><code class="python">def silnia(n):
+    wynik = 1
+    while n > 1:
+        wynik = wynik * n
+        n = n - 1
+    return wynik
+</code></pre>
+</div>
+
+<div id="p2-recursion" class="step" data-x="12000" data-y="3000">
+<h1> Rekurencja </h1>
+Sposób definiowania procedur i funkcji (w algorytmach i programach zapisanych w językach programowania wysokiego poziomu), <strong>polegający na umieszczeniu w treści funkcji odwołań do tej samej funkcji</strong>.
+</div>
+
+<div id="p2-factorial-rekurencja" class="step" data-x="13500" data-y="3000">
+<h1> Silnia - rekurencyjnie </h1>
+<pre><code class="python">def silnia(n):
+    if n == 0:
+        return 1
+    return n * silnia(n - 1)
+</code></pre>
+</div>
+
+<div id="p2-recursion-depth" class="step" data-x="15000" data-y="3000">
+<h1> Ile razy można rekurencyjnie wywołać funkcję? </h1>
+Sprawdźmy
+</div>
+
+<div id="p2-fib" class="step" data-x="16500" data-y="3000">
+<h1> Ciąg Fibonacciego</h1>
+fib(0) = 0
+<br/>
+fib(1) = 1
+<br/>
+fib(n) = fib(n - 1) + fib(n - 2)
+<br/>
+<br/>
+<pre><code class="python">def fib(n):
+    <font color="#C8C8FF">???</font>
+
+print(fib(2))
+print(fib(5))
+...
+print(fib(20))
+...
+print(fib(20))
+</code></pre>
+</div>
+
+<div id="p2-fib-iter" class="step" data-x="18000" data-y="3000">
+<h1> Ciąg Fibonacciego - iteracyjnie</h1>
+<pre><code class="python">def fibi(n):
+    a = 0
+    b = 1
+
+    while n > 0:
+        a, b = b, a + b
+        n = n - 1
+
+    return a
+</code></pre>
+</div>
+
+<div id="p2-rec-iter-speed" class="step" data-x="19500" data-y="3000">
+<h1> Która szybsza? </h1>
+<strong>fib</strong> czy <strong>fibi</strong>?
+<br/>
+<br/>
+Sprawdźmy
+</div>
+
+<div id="p2-example" class="step" data-x="21000" data-y="3000">
+<h1> Przykład </h1>
+Choinka
+</div>
+
+<div id="p2-exercise" class="step" data-x="22500" data-y="3000">
+<h1> Zadanie </h1>
+Suma elementów. Bez pętli. Bez funkcji <strong>sum</strong>.
+<br/>
+<br/>
+<pre><code class="python">>>> suma(1, 2, 3)
+6
+>>> suma([5, 2, 3, 0, 3])
+13
+</code></pre>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 3 -->
+<!--        -->
+<!--        -->
+
+<div id="part3" class="step" data-x="0" data-y="4500">
+    <h1>Część 3</h1>
+    <ul>
+        <li> Budowanie list, zbiorów i słowników </li>
+        <li> Generatory </li>
+    </ul>
+</div>
+
+<div id="p3-list-comprehension" class="step" data-x="1500" data-y="4500">
+<h1> List comprehension</h1>
+Konstrukcja pozwalająca budować listę na podstawie innej listy.
+<br/>
+<br/>
+<ul>
+    <li> Wyrażenie listowe </li>
+    <li> Odwzorowanie listy </li>
+</ul>
+</div>
+
+<div id="p3-list-comprehension-example-1" class="step" data-x="3000" data-y="4500">
+<h1> List comprehension - przykład 1</h1>
+<pre><code class="python">a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+<br/>
+<pre><code class="python">a = []
+for i in range(10):
+    a.append(i)
+</code></pre>
+<br/>
+<pre><code class="python">a = [i for i in range(10)]
+</code></pre>
+</div>
+
+<div id="p3-list-comprehension-example-2" class="step" data-x="4500" data-y="4500">
+<h1> List comprehension - przykład 2</h1>
+<pre><code class="python">a = [0, 2, 4, 6, 8]
+</code></pre>
+<br/>
+<pre><code class="python">a = []
+for i in range(10):
+    if i % 2 == 0:
+        a.append(i)
+</code></pre>
+<br/>
+<pre><code class="python">a = [i for i in range(10) if i % 2 == 0]
+</code></pre>
+</div>
+
+<div id="p3-list-comprehension-example-3" class="step" data-x="6000" data-y="4500">
+<h1> List comprehension - przykład 3</h1>
+Lista liczb z przedziału [0, 99] podzielnych przez 2 i 7
+<br/>
+<br/>
+<pre><code class="python">a = [0, 14, 28, 42, 56, 70, 84, 98]
+</code></pre>
+<br/>
+<pre><code class="python">a = []
+for i in range(100):
+    if i % 2 == 0 and i % 7 == 0:
+        a.append(i)
+</code></pre>
+<br/>
+<pre><code class="python">a = [i for i in range(100) if i % 2 == 0 and i % 7 == 0]
+</code></pre>
+</div>
+
+<div id="p3-set-comprehension" class="step" data-x="7500" data-y="4500">
+<h1> Set comprehension</h1>
+Zbiór liczb z przedziału [0, 99] podzielnych przez 2 i 7
+<br/>
+<br/>
+<pre><code class="python">a = {0, 98, 70, 42, 14, 84, 56, 28}
+</code></pre>
+<br/>
+<pre><code class="python">a = set()
+for i in range(100):
+    if i % 2 == 0 and i % 7 == 0:
+        a.add(i)
+</code></pre>
+<br/>
+<pre><code class="python">a = {i for i in range(100) if i % 2 == 0 and i % 7 == 0}
+</code></pre>
+</div>
+
+<div id="p3-list-set" class="step" data-x="9000" data-y="4500">
+<h1> Lista i zbiór - niektóre różnice</h1>
+<strong> list() </strong>
+<ul>
+    <li> Zachowana kolejność elementów </li>
+    <li> Może przechowywać duplikaty </li>
+</ul>
+<br/>
+<strong> set() </strong>
+<ul>
+    <li> Nie zachowuje kolejności elementów </li>
+    <li> Nie może zawierać duplikatów </li>
+</ul>
+</div>
+
+<div id="p3-zip-create" class="step" data-x="10500" data-y="4500">
+<h1> <strong>zip</strong> - tworzenie "na suwwak"</h1>
+<pre><code class="python">>>> a = [1, 2, 3, 4]
+>>> b = [2300, 4500, 1700, 8900]
+>>> zipped = zip(a, b)
+>>> list(zipped)
+[(1, 2300), (2, 4500), (3, 1700), (4, 8900)]
+</code></pre>
+</div>
+
+<div id="p3-dict-create" class="step" data-x="12000" data-y="4500">
+<h1> Tworzenie słownika z listy par</h1>
+<pre><code class="python">>>> user_data = [('name', 'Ala'), ('animal', 'cat'), ('age', 23)]
+>>> dict(user_data)
+{'name': 'Ala', 'animal': 'cat', 'age': 23}
+</code></pre>
+</div>
+
+<div id="p3-zip-dict-create-1" class="step" data-x="13500" data-y="4500">
+<h1> Tworzenie słowników </h1>
+<pre><code class="python">>>> keys = ['name', 'animal', 'age']
+
+>>> ala = ['Ala', 'cat', 23]
+>>> tomek = ['Tomek', 'dog', 32]
+>>> piotr = ['Piotr', 'dolphin', 63]
+
+>>> dict(zip(keys, ala))
+{'name': 'Ala', 'animal': 'cat', 'age': 23}
+
+>>> dict(zip(keys, tomek))
+{'name': 'Tomek', 'animal': 'dog', 'age': 32}
+
+>>> dict(zip(keys, piotr))
+{'name': 'Piotr', 'animal': 'dolphin', 'age': 63}
+</code></pre>
+</div>
+
+<div id="p3-zip-dict-create-2" class="step" data-x="15000" data-y="4500">
+<h1> Tworzenie słowników </h1>
+<pre><code class="python">>>> keys = ['name', 'animal', 'age']
+
+>>> ala = ['Ala', 'cat', 23]
+>>> tomek = ['Tomek', 'dog', 32]
+>>> piotr = ['Piotr', 'dolphin', 63]
+
+>>> [dict(zip(keys, user)) for user in [ala, tomek, piotr]]
+</code></pre>
+</div>
+
+<div id="p3-generator-list" class="step" data-x="16500" data-y="4500">
+<h1> Liczby parzyste - list comprehension</h1>
+<pre><code class="python">def even_numbers(N):
+    return [i for i in range(N) if i % 2 == 0]
+
+tmp = even_numbers(10)
+
+for i in tmp:
+    print(i)
+</code></pre>
+</div>
+
+<div id="p3-generator-generator" class="step" data-x="18000" data-y="4500">
+<h1> Liczby parzyste - generator</h1>
+<pre><code class="python">def even_numbers(N):
+    for i in range(N):
+        if i % 2 == 0:
+            yield i
+
+tmp = even_numbers(10)
+
+for i in tmp:
+    print(i)
+</code></pre>
+</div>
+
+<div id="p3-generator-list-generator" class="step" data-x="19500" data-y="4500">
+<h1> list(Generator)</h1>
+<pre><code class="python">def even_numbers(N):
+    for i in range(N):
+        if i % 2 == 0:
+            yield i
+
+a = list(even_numbers(10))
+
+b = [i for i in range(10) if i % 2 == 0]
+
+a == b
+True
+</code></pre>
+</div>
+
+<div id="p3-generator-week" class="step" data-x="21000" data-y="4500">
+<h1> Generator dni tygodnia </h1>
+<pre><code class="python">def week():
+    yield 'Monday'
+    yield 'Tuesday'
+    yield 'Wednesday'
+    yield 'Thursday'
+    yield 'Friday'
+    yield 'Saturday'
+    yield 'Sunday'
+
+zipped = zip(range(1, 1000), week())
+print(list(zipped))
+???
+</code></pre>
+</div>
+
+<div id="p3-example" class="step" data-x="22500" data-y="4500">
+<h1> Przykład </h1>
+Tabliczka mnożenia.
+</div>
+
+<div id="p3-exercise" class="step" data-x="24000" data-y="4500">
+<h1> Zadanie </h1>
+Napisz funkcję <strong>revwords</strong>
+<br/>
+<br/>
+<pre><code class="python">>>> revwords('Tomek ma psa Anatola')
+Kemot am asp Alotana
+
+>>> revwords('Kemot am asp Alotana')
+Tomek ma psa Anatola
+</code></pre>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 4 -->
+<!--        -->
+<!--        -->
+
+<div id="part4" class="step" data-x="0" data-y="6000">
+    <h1>Część 4</h1>
+    <ul>
+        <li> Obsługa plików </li>
+    </ul>
+</div>
+
+<div id="p4-file-read" class="step" data-x="1500" data-y="6000">
+<h1> Wyświetlenie zawartości pliku </h1>
+<pre><code class="python">plik = open('plik.txt')
+
+for line in plik:
+    print(line.strip())
+
+plik.close()
+</code></pre>
+<br/>
+<strong>.strip()</strong> usuwa białe znaki z początku i końca napisu
+</div>
+
+<div id="p4-file-read-b" class="step" data-x="3000" data-y="6000">
+<h1> Wyświetlenie zawartości pliku </h1>
+<pre><code class="python">plik = open('plik.txt')
+
+for line in plik:
+    print(repr(line))
+
+plik.close()
+</code></pre>
+</div>
+
+<div id="p4-file-read-with" class="step" data-x="4500" data-y="6000">
+<h1> Konstrukcja <strong>with</strong> </h1>
+<pre><code class="python">with open('plik.txt') as plik:
+    for line in plik:
+        print(repr(line))
+</code></pre>
+<br/>
+<strong>plik.close()</strong> - zbędne
+<br/>
+<br/>
+Plik zostanie automatycznie zamknięty po wyjściu z bloku with
+</div>
+
+<div id="p4-file-read-content" class="step" data-x="6000" data-y="6000">
+<h1> Wczytaj cały plik od razu </h1>
+<pre><code class="python">with open('plik.txt') as plik:
+    content = plik.read()
+    print(content)
+</code></pre>
+</div>
+
+<div id="p4-file-write-1" class="step" data-x="7500" data-y="6000">
+<h1> Zapis do pliku </h1>
+<pre><code class="python">napis = 'Ala ma kota'
+with open('plik.txt', 'w') as plik:
+    plik.write(napis)
+</code></pre>
+</div>
+
+<div id="p4-file-write-2" class="step" data-x="9000" data-y="6000">
+<h1> Zapis do pliku - kilka linii</h1>
+<pre><code class="python">napis = 'Ala ma kota'
+with open('plik.txt', 'w') as plik:
+    plik.write(napis)
+    plik.write(napis)
+    plik.write(napis)
+</code></pre>
+</div>
+
+<div id="p4-file-write-3" class="step" data-x="10500" data-y="6000">
+<h1> Zapis do pliku - kilka linii</h1>
+<pre><code class="python">napis = 'Ala ma kota'
+with open('plik.txt', 'w') as plik:
+    plik.write(napis)
+    plik.write('\r\n')
+    plik.write(napis)
+    plik.write('\r\n')
+    plik.write(napis)
+    plik.write('\r\n')
+</code></pre>
+</div>
+
+<div id="p4-file-read-write-mode" class="step" data-x="12000" data-y="6000">
+<h1> Tryb zapisu i odczytu</h1>
+<pre><code class="python">with open('plik.txt', mode) as plik:
+</code></pre>
+<br/>
+<strong>mode</strong> - kilka przykładów
+<br/>
+<br/>
+<ul>
+    <li> nic - domyślnie <strong>'r'</strong> </li>
+    <li> <strong>'r'</strong> - odczyt pliku tekstowo </li>
+    <li> <strong>'rt'</strong> - odczyt pliku tekstowo </li>
+    <li> <strong>'rb'</strong> - odczyt pliku binarnie </li>
+    <li> <strong>'w'</strong> - zapis do pliku tekstowo, usuwa istniejący plik </li>
+    <li> <strong>'w+'</strong> - zapis i odczyt pliku tekstowo, usuwa istniejący plik </li>
+    <li> <strong>'r+'</strong> - odczyt i zapis pliku tekstowo, plik musi istnieć </li>
+    <li> <strong>'a'</strong> - dopisywanie do pliku </li>
+</ul>
+</div>
+
+<div id="p4-example" class="step" data-x="13500" data-y="6000">
+<h1> Przykłady </h1>
+Posortowanie zawartości pliku
+</div>
+
+<div id="p4-exercise" class="step" data-x="15000" data-y="6000">
+<h1> Zadanie </h1>
+Pan Tadeusz
+<br/>
+<br/>
+<ul>
+    <li> Który wyraz występuje najczęściej? </li>
+    <li> Ile jest różnych wyrazów? </li>
+</ul>
+</div>
+
+<!--           -->
+<!--           -->
+<!-- Exercises -->
+<!--           -->
+<!--           -->
+
+<div id="p5-exercise" class="step" data-x="0" data-y="7500">
+<h1>Zadanie</h1>
+Baza danych.
+<br/>
+<br/>
+<strong>baza.txt:</strong>
+<pre><code class="python">nazwisko,imie,kolor oczu,wzrost
+nazwisko,imie,kolor oczu,wzrost
+nazwisko,imie,kolor oczu,wzrost
+</pre></code>
+<br/>
+<strong>Interfejs:</strong>
+<pre><code class="python">Witaj w bazie danych, co chcesz zrobić?
+1. Dodaj osobę
+2. Usuń osobę
+3. Wyświetl wszystkich
+4. Znajdź
+5. Wygeneruj HTML
+6. Wyjdź
+</pre></code>
+</div>
+
+<div id="alldivs" class="step" data-x="0" data-y="9000">
+<a href="#title">title</a>
+<a href="#part1">part1</a>
+<a href="#part2">part2</a>
+<a href="#part3">part3</a>
+<a href="#part4">part4</a>
+<a href="#p1a-interpreter_script">p1a-interpreter_script</a>
+<a href="#p1a-types">p1a-types</a>
+<a href="#p1a-input">p1a-input</a>
+<a href="#p1a-if_indent">p1a-if_indent</a>
+<a href="#p1a-string">p1a-string</a>
+<a href="#p1a-list">p1a-list</a>
+<a href="#p1a-for">p1a-for</a>
+<a href="#p1a-function">p1a-function</a>
+<a href="#p1a-module">p1a-module</a>
+<a href="#p1b-dict">p1b-dict</a>
+<a href="#p1b-dict-get">p1b-dict-get</a>
+<a href="#p1b-dict-del">p1b-dict-del</a>
+<a href="#p1b-dict-enum">p1b-dict-enum</a>
+<a href="#p1b-max">p1b-max</a>
+<a href="#p1b-argparam">p1b-argparam</a>
+<a href="#p1b-nargs">p1b-nargs</a>
+<a href="#p1b-nparams">p1b-nparams</a>
+<a href="#p1b-kwargs">p1b-kwargs</a>
+<a href="#p1b-args-kwargs">p1b-args-kwargs</a>
+<a href="#p1b-exercise-1">p1b-exercise-1</a>
+<a href="#p1b-example">p1b-example</a>
+<a href="#p1b-exercise-2">p1b-exercise-2</a>
+<a href="#part2">part2</a>
+<a href="#p2-for-break">p2-for-break</a>
+<a href="#p2-for-continue">p2-for-continue</a>
+<a href="#p2-for-else-1">p2-for-else-1</a>
+<a href="#p2-for-else-2">p2-for-else-2</a>
+<a href="#p2-while-1">p2-while-1</a>
+<a href="#p2-while-2">p2-while-2</a>
+<a href="#p2-factorial">p2-factorial</a>
+<a href="#p2-factorial-iter">p2-factorial-iter</a>
+<a href="#p2-recursion">p2-recursion</a>
+<a href="#p2-factorial-rekurencja">p2-factorial-rekurencja</a>
+<a href="#p2-recursion-depth">p2-recursion-depth</a>
+<a href="#p2-fib">p2-fib</a>
+<a href="#p2-fib-iter">p2-fib-iter</a>
+<a href="#p2-rec-iter-speed">p2-rec-iter-speed</a>
+<a href="#p2-example">p2-example</a>
+<a href="#p2-exercise">p2-exercise</a>
+<a href="#part3">part3</a>
+<a href="#p3-list-comprehension">p3-list-comprehension</a>
+<a href="#p3-list-comprehension-example-1">p3-list-comprehension-example-1</a>
+<a href="#p3-list-comprehension-example-2">p3-list-comprehension-example-2</a>
+<a href="#p3-list-comprehension-example-3">p3-list-comprehension-example-3</a>
+<a href="#p3-set-comprehension">p3-set-comprehension</a>
+<a href="#p3-list-set">p3-list-set</a>
+<a href="#p3-zip-create">p3-zip-create</a>
+<a href="#p3-dict-create">p3-dict-create</a>
+<a href="#p3-zip-dict-create-1">p3-zip-dict-create-1</a>
+<a href="#p3-zip-dict-create-2">p3-zip-dict-create-2</a>
+<a href="#p3-generator-list">p3-generator-list</a>
+<a href="#p3-generator-generator">p3-generator-generator</a>
+<a href="#p3-generator-list-generator">p3-generator-list-generator</a>
+<a href="#p3-generator-week">p3-generator-week</a>
+<a href="#p3-example">p3-example</a>
+<a href="#p3-exercise">p3-exercise</a>
+<a href="#part4">part4</a>
+<a href="#p4-file-read">p4-file-read</a>
+<a href="#p4-file-read-b">p4-file-read-b</a>
+<a href="#p4-file-read-with">p4-file-read-with</a>
+<a href="#p4-file-read-content">p4-file-read-content</a>
+<a href="#p4-file-write-1">p4-file-write-1</a>
+<a href="#p4-file-write-2">p4-file-write-2</a>
+<a href="#p4-file-write-3">p4-file-write-3</a>
+<a href="#p4-file-read-write-mode">p4-file-read-write-mode</a>
+<a href="#p4-example">p4-example</a>
+<a href="#p4-exercise">p4-exercise</a>
+<a href="#p5-exercise">p5-exercise</a>
+</div>
+
+</div> <!-- impress -->
+
+<script src="js/impress.js"></script>
+<script> impress().init(); </script>
+<script> hljs.initHighlightingOnLoad(); </script>
+
+</body>
+</html>
