@@ -1,0 +1,3 @@
+Kamil,programista,python
+Sławek,programista,C
+Ewelina,programista,C
