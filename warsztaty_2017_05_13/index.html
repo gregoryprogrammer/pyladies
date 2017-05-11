@@ -1,0 +1,650 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>PyLadies - Python3 - Warsztaty dla początkujących</title>
+
+    <meta name="description" content="PyLadies Python3 - OOP, pygame" />
+    <meta name="author" content="Grzegorz Gwóźdź" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="lib/highlight/styles/ascetic-dark.css">
+    <script src="lib/highlight/highlight.pack.js"></script>
+
+    <style>
+    div#prepare
+    {
+        font-size: 1.6em;
+    }
+    </style>
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<a href="#title">Home</a>
+<a href="#alldivs">alldivs</a>
+<a href="../pyladies-wroclaw-warsztaty_2017_05_13.tar.gz"> Pobierz </a>
+<br/>
+<span class="mini-desc">
+Prezentacja dostosowana do rozdzielczości 1920x1080.
+</span>
+<br/>
+<span class="mini-desc"> Przygotował: Grzegorz Gwóźdź. </span>
+<span class="mini-desc"> 2017/05/13 </span>
+
+
+<div id="impress">
+
+<div id="title" class="step" data-x="0" data-y="0" data-z="0" data-rotate-y="60">
+    <div class="python-logo">
+        <img src="./images/python_with_shadow.png"/>
+        <h1>Python</h1>
+    </div>
+    <div class="python-logo">
+        <img src="./images/pyladies_head.png"/>
+        <img src="./images/pyladies_logo.png" class="rotate90">
+        <!-- <h2> Warsztaty dla początkujących </h2> -->
+        <h2> Programowanie obiektowe </h2>
+    </div>
+    <a href="#prepare">Jak się przygotować</a>
+    <a href="#part1-oop">OOP i wyjątki</a>
+    <a href="#part2-pygame">pygame</a>
+    <a href="#part3-aliendrop">Alien Drop</a>
+    <a href="#part4-pydrop">PyDrop</a>
+    <br/>
+</div>
+
+<!--         -->
+<!--         -->
+<!-- Prepare -->
+<!--         -->
+<!--         -->
+
+<div id="prepare" class="step" data-x="0" data-y="1500">
+W tej chwili najnowszą wersją Pythona jest 3.6.1, zalecamy taką zainstalować.
+<br/>
+<br/>
+Tym razem napiszemy wspólnie grę wykorzystując moduł <strong> pygame </strong>.
+Na stronie <a href="https://www.pygame.org/wiki/GettingStarted">https://www.pygame.org/wiki/GettingStarted</a> znajduje się instrukcja instalacji.
+<br/>
+<br/>
+Wystarczy w linii poleceń (cmd) wydać komendę:
+<br/>
+<pre><code class="bash" style="font-size:1.0em">python3 -m pip install pygame --user </code></pre>
+<br/>
+Jeśli mamy zainstalowaną wyłącznie wersję trzecią Pythona, to zamiast <strong>python3</strong> mamy <strong>python</strong>. Wtedy
+<br/>
+<pre><code class="bash" style="font-size:1.0em">python -m pip install pygame --user </code></pre>
+<br/>
+Uwaga. Zastosowany powyżej moduł <strong> pip </strong> (package manager) dostępny jest od Pythona 3.4.
+<br/>
+<br/>
+By sprawdzić czy się udało wykonujemy w linii poleceń
+<br/>
+<pre><code class="bash" style="font-size:1.0em">python3 -m pygame.examples.aliens </code></pre>
+Powinna uruchomić się przykładowa gra.
+<br/>
+<br/>
+<div style="border:1px solid; padding: 8px; text-align: justify;">
+Skorzystamy z następującego zestawu grafik: <a href="http://gwoozdz.vot.pl/pyladies/pydrop-data.zip">pydrop-data.zip</a>.
+Można przygotować własne obrazki.
+Najlepiej o takich samych wymiarach i nazwach.
+Pod adresem <a href="https://github.com/gregoryprogrammer/pyladies/tree/master/warsztaty_2017_05_13-gra/pydrop">pydrop</a> znajduje się przykładowy kod, który wspólnie napiszemy.
+</div>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 1 -->
+<!-- OOP    -->
+<!--        -->
+
+<div id="part1-oop" class="step" data-x="0" data-y="3000">
+    <h1>Część 1</h1>
+    <ul>
+        <li> Programowanie obiektowe </li>
+        <li> Klasa, obiekt, pole, metoda, self </li>
+        <li> Specjalne metody </li>
+        <li> Dziedziczenie </li>
+        <li> Wyjątki </li>
+    </ul>
+</div>
+
+<div id="oop-def" class="step" data-x="1500" data-y="3000">
+    <h1> Programowanie obiektowe </h1>
+    <ul>
+        <li> Programy wyrażony jest za pomocą obiektów </li>
+        <li> Obiekt - element łączący stan i zachowanie </li>
+        <li> Stan - pola, "membery" </li>
+        <li> Zachowanie - metody </li>
+        <li> OOP - object oriented programming </li>
+    </ul>
+    <br/>
+    <h1> Inne paradygmaty programowania </h1>
+    <ul>
+        <li> Programowanie proceduralne </li>
+        <li> Programowanie strukturalne </li>
+    </ul>
+</div>
+
+<div id="oop-class" class="step" data-x="3000" data-y="3000">
+<h1> Klasa, obiekt, metoda, pole, self </h1>
+<pre><code class="python">class NaszaKlasa:
+    name = 'Piotr'
+
+    def hello(self):
+        print('Cześć! Jestem', self.name)
+
+    def metoda(self, arg):
+        print('Metoda z argumentem', arg)
+
+obiekt = NaszaKlasa()
+obiekt.hello()
+obiekt.metoda(16)  # NaszaKlasa.metoda(obiekt, 16)
+</code></pre>
+</div>
+
+<div id="oop-dunder" class="step" data-x="4500" data-y="3000">
+<h1> Specjalne metody </h1>
+<ul>
+<li> Podwójne podkreślniki z przodu i z tyłu nazwy </li>
+<li> dunder - double underscore </li>
+</ul>
+<br/>
+<pre><code class="python">class NazwaKlasy:
+    def __metoda_specjalna__(self):
+        pass</code></pre>
+<br/>
+<pre><code class="python">>>> help(int)
+>>> help(str) </code></pre>
+</div>
+
+<div id="oop-dunder-int" class="step" data-x="6000" data-y="3000">
+<h1> Metoda <strong>__add__</strong> w klasie <strong>int</strong></h1>
+<br/>
+<pre><code class="python">>>> int.__add__(4, 5)  # OK
+
+>>> 4.__add__(5)       # BŁĄD
+
+>>> (4).__add__(5)     # OK</code></pre>
+</div>
+
+<div id="oop-ctor-dtor" class="step" data-x="7500" data-y="3000">
+<h1> Konstruktor i destruktor </h1>
+<pre><code class="python">class NaszaKlasa:
+    def __init__(self):
+        print('Konstruktor')
+
+    def __del__(self):
+        print('Destruktor')
+
+a = NaszaKlasa()
+del a</code></pre>
+</div>
+
+
+<div id="oop-myint-1" class="step" data-x="9000" data-y="3000">
+<h1> Własna klasa <strong>int</strong></h1>
+<pre><code class="python">class MyInt:
+    value = 0
+    def __init__(self, value):
+        self.value = value
+
+a = MyInt(5)
+print(a)</code></pre>
+</div>
+
+<div id="oop-myint-2" class="step" data-x="10500" data-y="3000">
+<h1> <strong>__str__</strong> - operator konwersji na string</h1>
+<pre><code class="python">class MyInt:
+    value = 0
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return '{}'.format(self.value)
+
+a = MyInt(5)
+print(a)</code></pre>
+</div>
+
+<div id="oop-myint-3" class="step" data-x="12000" data-y="3000">
+<h1> Czego brakuje? </h1>
+<pre><code class="python">class MyInt:
+    value = 0
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return '{}'.format(self.value)
+
+a = MyInt(5)
+b = MyInt(42)
+<font color="red">print(a + b)</font></code></pre>
+</div>
+
+<div id="oop-myint-4" class="step" data-x="13500" data-y="3000">
+<h1> <strong>__add__</strong> - operator dodawania</h1>
+<pre><code class="python">class MyInt:
+    value = 0
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        value = self.value + other.value
+        return MyInt(value)
+
+    def __str__(self):
+        return '{}'.format(self.value)
+
+a = MyInt(5)
+b = MyInt(42)
+print(a + b)</code></pre>
+</div>
+
+
+<div id="oop-inheritance-1" class="step" data-x="15000" data-y="3000">
+<h1> Dziedziczenie </h1>
+<pre><code class="python">class Bazowa:
+    pass
+
+class Pochodna(Bazowa):
+    pass
+
+print(Bazowa.__base__)
+print(Pochodna.__base__)</code></pre>
+</div>
+
+<div id="oop-inheritance-2" class="step" data-x="16500" data-y="3000">
+<h1> Dziedziczenie - object</h1>
+Wszystkie klasy dziedziczą po typie <strong>object</strong>
+<br/>
+<br/>
+<pre><code class="python">class Pierwsza:
+    pass
+
+class Druga(object):
+    pass
+
+print(Pierwsza.__base__)
+print(Druga.__base__)</code></pre>
+</div>
+
+<div id="oop-inheritance-3" class="step" data-x="18000" data-y="3000">
+<h1> Dziedziczenie - przykład</h1>
+<pre><code class="python">class Bazowa(object):
+    x = 5
+
+class Pochodna(Bazowa):
+    def hello(self):
+        print('Hello', self.x)
+
+test = Pochodna()
+test.hello()
+
+</code></pre>
+</div>
+
+
+<div id="except" class="step" data-x="19500" data-y="3000">
+<h1> Wyjątki </h1>
+<pre><code class="python">fruits = dict()
+fruits['orange'] = 54
+fruits['apple'] = 28
+
+print(fruits['kiwi'])
+
+<font color="red">Traceback</font> (most recent call last):
+  File "<stdin>", line X, in <module>
+KeyError: 'kiwi'
+</code></pre>
+</div>
+
+<div id="except-try" class="step" data-x="21000" data-y="3000">
+<h1> Łapanie wyjątku - <strong>try</strong> </h1>
+<pre><code class="python">fruits = dict()
+fruits['orange'] = 54
+fruits['apple'] = 28
+
+try:
+    print(fruits['kiwi'])
+except:
+    print('Złapałem wyjątek! Ale jaki?')
+
+Złapałem wyjątek! Ale Jaki?</code></pre>
+</div>
+
+
+<div id="except-keyerror-1" class="step" data-x="22500" data-y="3000">
+<h1> Nazwa wyjątku </h1>
+<pre><code class="python">fruits = dict()
+fruits['orange'] = 54
+fruits['apple'] = 28
+
+print(fruits['kiwi'])
+
+Traceback (most recent call last):
+  File "<stdin>", line X, in <module>
+<font color="red">KeyError</font>: 'kiwi'
+</code></pre>
+</div>
+
+<div id="except-keyerror-2" class="step" data-x="24000" data-y="3000">
+<h1> Łapanie konkretnego wyjątku</h1>
+<pre><code class="python">fruits = dict()
+fruits['orange'] = 54
+fruits['apple'] = 28
+
+try:
+    print(fruits['kiwi'])
+except KeyError:
+    print('Złapałem wyjątek KeyError!')
+except:
+    print('Złapałem jakiś wyjątek!')
+
+Złapałem wyjątek KeyError!</code></pre>
+</div>
+
+<div id="except-keyerror-3" class="step" data-x="25500" data-y="3000">
+<h1> Szczegóły wyjątku </h1>
+<pre><code class="python">fruits = dict()
+fruits['orange'] = 54
+fruits['apple'] = 28
+
+try:
+    print(fruits['kiwi'])
+except KeyError as err:
+    print('Brak klucza', err)
+except:
+    print('Złapałem jakiś wyjątek!')
+
+Brak klucza 'kiwi'</code></pre>
+</div>
+
+<div id="except-throw" class="step" data-x="27000" data-y="3000">
+<h1> Rzucanie wyjątku </h1>
+<pre><code class="python">import sys
+
+def dodaj(a, b):
+    if a > 100 or b > 100:
+        raise Exception('Nie chce mi się liczyć!')
+    else:
+        return a + b
+
+try:
+    dodaj(47, 200)
+except Exception:
+    print(sys.exc_info())</code></pre>
+</div>
+
+<div id="except-myexcept" class="step" data-x="28500" data-y="3000">
+<h1> Rzucanie własnego wyjątku </h1>
+<pre><code class="python">import sys
+
+class TooMuch(Exception):
+    pass
+
+def dodaj(a, b):
+    if a > 100 or b > 100:
+        raise TooMuch('Nie chce mi się liczyć!')
+    else:
+        return a + b
+
+try:
+    dodaj(47, 200)
+except TooMuch:
+    print(sys.exc_info())</code></pre>
+</div>
+
+<div id="except-myexcept-example" class="step begin-example" data-x="30000" data-y="3000">
+<h1> Własny wyjątek </h1>
+<pre><code class="python">class TooMuch(Exception):
+    x = None
+    y = None
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return 'Za dużo podałeś! Aż {} i {}'.format(self.x, self.y)</code></pre>
+</div>
+
+<div id="except-myexcept-example-cd" class="step end-example" data-x="30000" data-y="3000">
+<h1> Rzucenie własnego wyjątku </h1>
+<pre><code class="python">def dodaj(a, b):
+    if a > 100 or b > 100:
+        raise TooMuch(a, b)
+    else:
+        return a + b
+
+try:
+    dodaj(47, 200)
+except TooMuch as err:
+    print(err)</code></pre>
+    <br/>
+<pre><code class="python">Za dużo podałeś! Aż 47 i 200</code></pre>
+</div>
+<!--        -->
+<!--        -->
+<!-- Part 2 -->
+<!-- pygame -->
+<!--        -->
+
+<div id="part2-pygame" class="step" data-x="0" data-y="4500">
+    <h1>Część 2</h1>
+    <ul>
+        <li> Biblioteka pygame </li>
+        <li> Konstrukcja gry </li>
+    </ul>
+</div>
+
+<div id="pygame-1" class="step" data-x="1500" data-y="4500">
+    <h1>pygame</h1>
+    <ul>
+        <li> Dokumentacja: www.pygame.org/docs/ </li>
+    </ul>
+<br/>
+<pre><code class="python">>>> import pygame
+>>> help(pygame)
+>>> help(pygame.Surface)
+>>> help(pygame.Surface.blit)</code></pre>
+</div>
+
+<div id="pygame-2" class="step" data-x="3000" data-y="4500">
+<h1>Początek i koniec</h1>
+<br/>
+<pre><code class="python">import pygame
+pygame.init()
+pygame.quit()</code></pre>
+</div>
+
+<div id="pygame-3" class="step" data-x="4500" data-y="4500">
+<h1>Początek, środek i koniec</h1>
+<br/>
+<pre><code class="python">import pygame
+pygame.init()
+screen = pygame.display.set_mode((300, 300))
+pygame.display.flip()
+pygame.quit()</code></pre>
+</div>
+
+<div id="pygame-4" class="step" data-x="6000" data-y="4500">
+<h1>Początek, ciekawszy środek i koniec</h1>
+<br/>
+<pre><code class="python">import pygame
+pygame.init()
+screen = pygame.display.set_mode((300, 300))
+
+screen.fill((255, 0, 0))
+pygame.display.flip()
+pygame.time.wait(1000)
+
+screen.fill((255, 0, 0))
+pygame.display.flip()
+pygame.time.wait(1000)
+
+pygame.quit()</code></pre>
+</div>
+
+<div id="pygame-5" class="step" data-x="7500" data-y="4500">
+<h1>Początek, żółty środek i koniec</h1>
+<br/>
+<pre><code class="python">import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((300, 300))
+eggyolk = pygame.Surface((100, 100))
+eggyolk.fill((230, 230, 0))
+
+screen.fill((230, 230, 230))
+screen.blit(eggyolk, (100, 100))
+pygame.display.flip()
+pygame.time.wait(1000)
+
+pygame.quit()</code></pre>
+</div>
+
+<div id="mygame-base" class="step" data-x="9000" data-y="4500">
+<h1>Konstrukcja prostej gry</h1>
+<br/>
+<pre><code class="python">1. Utwórz i zainicjuj główne obiekty
+2. Wczytaj zasoby (obrazki, dźwięki)
+<font color="green">3.</font> Główna pętla:
+   4. Interpretacja zdarzeń (klawisze, zmiana rozmiaru okna)
+   5. Aktualizacja obiektów
+      - pozycje
+      - punkty
+      - czy przerwać grę? TAK → przejdź do punktu <font color="yellow">9.</font>
+   6. Czyszczenie ekranu i rysowanie obiektów (blit)
+   7. Flip (renderowanie)
+   8. Przejdź do punktu <font color="green">3.</font>
+<font color="yellow">9.</font> Posprzątaj po sobie.</code></pre>
+</div>
+
+<div id="mygame-base-2" class="step" data-x="10500" data-y="4500">
+<h1>Konstrukcja prostej gry (przykład)</h1>
+<br/>
+<pre><code class="python">import pygame
+pygame.init()
+screen = pygame.display.set_mode((300, 300))
+background = pygame.image.load('tekstura.png')
+mainloop = True
+while mainloop:
+    events_loop()
+    update_objects()
+    if quit:
+        mainloop = False
+    screen.blit(background, (0,0))
+    pygame.display.flip()
+    pygame.time.wait(16)
+pygame.quit()</code></pre>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 3 -->
+<!-- alien  -->
+<!--        -->
+
+<div id="part3-aliendrop" class="step" data-x="0" data-y="6000">
+    <h1>Część 3</h1>
+    <ul>
+        <li> Analiza gry Alien Drop </li>
+    </ul>
+</div>
+
+<!--        -->
+<!--        -->
+<!-- Part 3 -->
+<!-- pydrop -->
+<!--        -->
+
+<div id="part4-pydrop" class="step" data-x="0" data-y="7500">
+    <h1>Część 4 - tworzymy grę</h1>
+    <ul>
+        <li> Folder z plikami </li>
+        <li> Określenie wymiarów</li>
+        <li> Elementy </li>
+        <li> Sterowanie </li>
+        <li> Kod </li>
+    </ul>
+</div>
+
+<div id="folder" class="step" data-x="1500" data-y="7500">
+<h1> Folder z plikami </h1>
+<br/>
+<pre><code class="python">
+└── pydrop
+    ├── data
+    │   ├── background.png
+    │   ├── moon.png
+    │   ├── ninja.png
+    │   ├── nokiafc22.ttf
+    │   ├── pyladies_head.png
+    │   └── python_logo.png
+    └── pydrop.py
+    </code></pre>
+</div>
+
+<div id="alldivs" class="step" data-x="0" data-y="9000">
+<a href="#title">title</a>
+<a href="#prepare">prepare</a>
+<a href="#part1-oop">part1-oop</a>
+<a href="#oop-def">oop-def</a>
+<a href="#oop-class">oop-class</a>
+<a href="#oop-dunder">oop-dunder</a>
+<a href="#oop-dunder-int">oop-dunder-int</a>
+<a href="#oop-ctor-dtor">oop-ctor-dtor</a>
+<a href="#oop-myint-1">oop-myint-1</a>
+<a href="#oop-myint-2">oop-myint-2</a>
+<a href="#oop-myint-3">oop-myint-3</a>
+<a href="#oop-myint-4">oop-myint-4</a>
+<a href="#oop-inheritance-1">oop-inheritance-1</a>
+<a href="#oop-inheritance-2">oop-inheritance-2</a>
+<a href="#oop-inheritance-3">oop-inheritance-3</a>
+<a href="#except">except</a>
+<a href="#except-try">except-try</a>
+<a href="#except-keyerror-1">except-keyerror-1</a>
+<a href="#except-keyerror-2">except-keyerror-2</a>
+<a href="#except-keyerror-3">except-keyerror-3</a>
+<a href="#except-throw">except-throw</a>
+<a href="#except-myexcept">except-myexcept</a>
+<a href="#except-myexcept-example">except-myexcept-example</a>
+<a href="#except-myexcept-example-cd">except-myexcept-example-cd</a>
+<a href="#part2-pygame">part2-pygame</a>
+<a href="#pygame-1">pygame-1</a>
+<a href="#pygame-2">pygame-2</a>
+<a href="#pygame-3">pygame-3</a>
+<a href="#pygame-4">pygame-4</a>
+<a href="#pygame-5">pygame-5</a>
+<a href="#mygame-base">mygame-base</a>
+<a href="#mygame-base-2">mygame-base-2</a>
+<a href="#part3-aliendrop">part3-aliendrop</a>
+<a href="#part4-pydrop">part4-pydrop</a>
+<a href="#folder">folder</a>
+</div>
+
+</div> <!-- impress -->
+
+<script src="js/impress.js"></script>
+<script> impress().init(); </script>
+<script> hljs.initHighlightingOnLoad(); </script>
+
+</body>
+</html>
